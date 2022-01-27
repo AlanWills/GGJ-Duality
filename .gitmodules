@@ -1,0 +1,3 @@
+[submodule "Assets/Celeste"]
+	path = Assets/Celeste
+	url = https://github.com/AlanWills/CelesteUnity.git
