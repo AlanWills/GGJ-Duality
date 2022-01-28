@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Celeste/Engine/Scenes/EngineSystems.unity
+    guid: 4e3ef088ffc27a4429c68fc486e0ecbe
+  - enabled: 1
+    path: Assets/Duality/Scenes/Duality.unity
+    guid: 9bc3b35ebb2ac8f48b204bc90804ca37
   m_configObjects: {}
