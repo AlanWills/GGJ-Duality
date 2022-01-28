@@ -1,4 +1,6 @@
 using Celeste.Tools;
+using Celeste.UI.Layout;
+using Celeste.Utils;
 using Duality.Player;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
@@ -9,12 +11,15 @@ namespace Duality.Input
     {
         #region Properties and Fields
 
-        [SerializeField] private PaddleSettings paddleSettings;
         [SerializeField] private Rigidbody2D paddleRigidbody2D;
         [SerializeField] private SpriteRenderer paddleSpriteRenderer;
+        [SerializeField] private PaddleSettings paddleSettings;
+        [SerializeField] private ReferenceLayout gameBounds;
 
         private bool moving;
         private Vector2 currentNormalizedVelocity;
+        private Vector3 gameBoundsMinWorldSpace;
+        private Vector3 gameBoundsMaxWorldSpace;
 
         #endregion
 
@@ -40,6 +45,10 @@ namespace Duality.Input
             var currentPosition = transform.position;
             currentPosition.y = Camera.main.ScreenToWorldPoint(pos).y;
             transform.position = currentPosition;
+
+            Rect gameBoundsUISpace = gameBounds.rectTransform.GetWorldRect();
+            gameBoundsMinWorldSpace = Camera.main.ScreenToWorldPoint(new Vector3(gameBoundsUISpace.xMin, gameBoundsUISpace.yMin, 0));
+            gameBoundsMaxWorldSpace = Camera.main.ScreenToWorldPoint(new Vector3(gameBoundsUISpace.xMax, gameBoundsUISpace.yMax, 0));
         }
 
         private void FixedUpdate()
@@ -47,11 +56,18 @@ namespace Duality.Input
             if (moving)
             {
                 float multiplier = Time.fixedDeltaTime * paddleSettings.PaddleSpeed;
-                Vector2 amount = currentNormalizedVelocity;
-                amount.x = 0;
-                amount.y *= multiplier;
+                Vector2 delta = currentNormalizedVelocity;
+                delta.x = 0;
+                delta.y *= multiplier;
 
-                paddleRigidbody2D.MovePosition(paddleRigidbody2D.position + amount);
+                Vector3 projectedPosition = paddleRigidbody2D.position + delta;
+                Vector3 transformSize = paddleRigidbody2D.transform.lossyScale;
+                float halfWidth = paddleSpriteRenderer.sprite.bounds.extents.x * transformSize.x;
+                float halfHeight = paddleSpriteRenderer.sprite.bounds.extents.y * transformSize.y;
+                projectedPosition.x = Mathf.Clamp(projectedPosition.x, gameBoundsMinWorldSpace.x + halfWidth, gameBoundsMaxWorldSpace.x - halfWidth);
+                projectedPosition.y = Mathf.Clamp(projectedPosition.y, gameBoundsMinWorldSpace.y + halfHeight, gameBoundsMaxWorldSpace.y - halfHeight);
+
+                paddleRigidbody2D.MovePosition(projectedPosition);
             }
         }
 
