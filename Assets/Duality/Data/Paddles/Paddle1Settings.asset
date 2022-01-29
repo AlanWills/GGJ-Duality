@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b65335333dfb54c46b0aacd276fa284b, type: 3}
   m_Name: Paddle1Settings
   m_EditorClassIdentifier: 
-  overridePaddleColour: 1
+  overridePaddleColour: 0
   paddleColour: {r: 1, g: 0, b: 0, a: 1}
   paddleSpeed: {fileID: 11400000, guid: 0010171a6b3417f4f903fb669dad8433, type: 2}
   aimSpeed: {fileID: 11400000, guid: 24e00f8c0a7d12142a2a54c757dfe0db, type: 2}
