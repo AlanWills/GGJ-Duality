@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3030564615727480267}
   - component: {fileID: 6642502819239997259}
   m_Layer: 6
-  m_Name: PoopAllocator
+  m_Name: PoopProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

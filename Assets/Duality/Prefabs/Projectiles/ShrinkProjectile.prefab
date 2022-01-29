@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3030564615727480267}
   - component: {fileID: -112164835681514738}
   m_Layer: 6
-  m_Name: ShrinkAllocator
+  m_Name: ShrinkProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229a34ca847868f4bbfff10dcbf35c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSettings: {fileID: 11400000, guid: 954894bd79df8db4baeec4fd733c3116, type: 2}
+  projectileSettings: {fileID: 11400000, guid: 44f8482f3b70cc34b8bf2838e96276ac, type: 2}
   projectileSpriteRenderer: {fileID: 7665328352135952180}
   projectileRigidbody: {fileID: 3030564615727480267}
 --- !u!50 &3030564615727480267

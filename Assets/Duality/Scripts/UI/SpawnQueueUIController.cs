@@ -38,16 +38,16 @@ namespace Duality.UI
                     projectileUIControllers[listIndex].gameObject.SetActive(false);
                     projectileUIControllers.RemoveAt(listIndex);
                 }
+            }
 
-                Debug.Assert(projectileUIControllers.Count == spawnQueue.NumItemsInQueue);
+            Debug.Assert(projectileUIControllers.Count == spawnQueue.NumItemsInQueue);
 
-                // Rebind the active controllers
-                for (int i = 0, n = spawnQueue.NumItemsInQueue; i < n; ++i)
-                {
-                    ProjectileSettings spawnQueueItem = spawnQueue.GetItem(i);
-                    Debug.Assert(spawnQueueItem != null, $"Spawn Queue item at {i} is null.");
-                    projectileUIControllers[i].Hookup(spawnQueueItem);
-                }
+            // Rebind the active controllers
+            for (int i = 0, n = spawnQueue.NumItemsInQueue; i < n; ++i)
+            {
+                ProjectileSettings spawnQueueItem = spawnQueue.GetItem(i);
+                Debug.Assert(spawnQueueItem != null, $"Spawn Queue item at {i} is null.");
+                projectileUIControllers[i].Hookup(spawnQueueItem);
             }
         }
 
