@@ -431,9 +431,10 @@ GameObject:
   m_Component:
   - component: {fileID: 888058522}
   - component: {fileID: 888058523}
+  - component: {fileID: 888058524}
   m_Layer: 8
   m_Name: GameAreaTop
-  m_TagString: Untagged
+  m_TagString: Bounds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -462,7 +463,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -478,6 +479,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &888058524
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888058521}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1065517082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -653,10 +675,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paddle2
       objectReference: {fileID: 0}
-    - target: {fileID: 6819084667912901388, guid: 98522dc80a67a314f80f00c3140838e9, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 6867016336336069351, guid: 98522dc80a67a314f80f00c3140838e9, type: 3}
       propertyPath: m_Name
       value: Paddle2SpawnAnchor
@@ -763,7 +781,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1238447273}
-  - component: {fileID: 1238447275}
   - component: {fileID: 1238447274}
   m_Layer: 8
   m_Name: GameArea
@@ -807,32 +824,6 @@ MonoBehaviour:
   gameAreaRight: {fileID: 1389931074}
   gameAreaTop: {fileID: 888058523}
   gameAreaBottom: {fileID: 1791069537}
---- !u!61 &1238447275
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1238447272}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 100, y: 100}
-  m_EdgeRadius: 0
 --- !u!1 &1389931072
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,6 +835,7 @@ GameObject:
   - component: {fileID: 1389931073}
   - component: {fileID: 1389931074}
   - component: {fileID: 1389931075}
+  - component: {fileID: 1389931076}
   m_Layer: 8
   m_Name: GameAreaRight
   m_TagString: Lines
@@ -875,7 +867,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -904,6 +896,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMask: {fileID: 11400000, guid: 8d5970e8dda92e7489e5a63d39449383, type: 2}
+--- !u!50 &1389931076
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389931072}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &1466154023 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6819084667912901383, guid: 98522dc80a67a314f80f00c3140838e9, type: 3}
@@ -1174,6 +1187,7 @@ GameObject:
   - component: {fileID: 1711119249}
   - component: {fileID: 1711119250}
   - component: {fileID: 1711119251}
+  - component: {fileID: 1711119252}
   m_Layer: 8
   m_Name: GameAreaLeft
   m_TagString: Lines
@@ -1205,7 +1219,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1234,6 +1248,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMask: {fileID: 11400000, guid: eac13137e79d9fa48aa53947410eefc7, type: 2}
+--- !u!50 &1711119252
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711119248}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1791069535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,9 +1279,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1791069536}
   - component: {fileID: 1791069537}
+  - component: {fileID: 1791069538}
   m_Layer: 8
   m_Name: GameAreaBottom
-  m_TagString: Untagged
+  m_TagString: Bounds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1275,7 +1311,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1291,6 +1327,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &1791069538
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791069535}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1792754149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,10 +1795,6 @@ PrefabInstance:
     - target: {fileID: 6819084667912901388, guid: 98522dc80a67a314f80f00c3140838e9, type: 3}
       propertyPath: m_Name
       value: Paddle1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6819084667912901388, guid: 98522dc80a67a314f80f00c3140838e9, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6867016336336069351, guid: 98522dc80a67a314f80f00c3140838e9, type: 3}
       propertyPath: m_Name

@@ -25,7 +25,7 @@ namespace Duality.Projectile
 
             transform.position = position;
             transform.rotation = rotation;
-            transform.Translate(new Vector3(0, projectileSpriteRenderer.sprite.bounds.extents.y));
+            transform.Translate(new Vector3(0, projectileSpriteRenderer.sprite.bounds.extents.sqrMagnitude * projectileSpriteRenderer.transform.lossyScale.y));
             gameObject.SetActive(true);
             projectileRigidbody.velocity = transform.TransformVector(new Vector2(0, forwardVelocity));
         }
