@@ -671,6 +671,10 @@ PrefabInstance:
       propertyPath: paddleSettings
       value: 
       objectReference: {fileID: 11400000, guid: ce6de8f07c9c3304fb314563c0be4479, type: 2}
+    - target: {fileID: 6819084667912901383, guid: 98522dc80a67a314f80f00c3140838e9, type: 3}
+      propertyPath: angleMultiplier
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 6819084667912901388, guid: 98522dc80a67a314f80f00c3140838e9, type: 3}
       propertyPath: m_Name
       value: Paddle2

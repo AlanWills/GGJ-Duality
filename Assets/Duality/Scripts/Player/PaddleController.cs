@@ -16,6 +16,7 @@ namespace Duality.Player
         [SerializeField] private SpriteRenderer aimDirectionSpriteRenderer;
         [SerializeField] private PaddleSettings paddleSettings;
         [SerializeField] private ReferenceLayout gameBounds;
+        [SerializeField] private float angleMultiplier = 1;
 
         private bool moving;
         private bool aiming;
@@ -65,7 +66,7 @@ namespace Duality.Player
                 {
                     float delta = Time.deltaTime * paddleSettings.AimSpeed * currentNormalizedVelocity.y;
                     currentAimAngle = Mathf.Clamp(currentAimAngle + delta, -paddleSettings.MaxAimAngle, paddleSettings.MaxAimAngle);
-                    aimDirection.localRotation = Quaternion.AngleAxis(currentAimAngle, new Vector3(0, 0, 1));
+                    aimDirection.localRotation = Quaternion.AngleAxis(angleMultiplier * currentAimAngle, new Vector3(0, 0, 1));
                 }
             }
         }
