@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a2d9c6a693760443a7796d5b64f8303, type: 3}
   m_Name: ProjectileSpawnerSettings
   m_EditorClassIdentifier: 
-  initialSpawnDelay: 3
+  initialSpawnDelay: 0
   secondsBetweenSpawns: 6
   spawnQueueSize: 4
   spawnVelocity: 3

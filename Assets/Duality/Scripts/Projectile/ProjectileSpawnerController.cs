@@ -16,7 +16,8 @@ namespace Duality.Projectile
         [SerializeField] private ProjectileAllocator projectileAllocator;
         [SerializeField] private Transform projectileSpawnAnchor;
 
-        private bool spawning;
+        private bool spawning = false;
+        private Coroutine spawnCoroutine;
 
         #endregion
 
@@ -26,8 +27,6 @@ namespace Duality.Projectile
         {
             projectileSpawnerSettings.Hookup();
             spawnQueue.Hookup(projectileSpawnerSettings.CreateStartingSpawnQueue());
-
-            StartSpawning();
         }
 
         #endregion
@@ -37,8 +36,18 @@ namespace Duality.Projectile
         private void StartSpawning()
         {
             spawning = true;
+            spawnCoroutine = StartCoroutine(SpawnCoroutine());
+        }
 
-            StartCoroutine(SpawnCoroutine());
+        private void StopSpawning()
+        {
+            spawning = false;
+
+            if (spawnCoroutine != null)
+            {
+                StopCoroutine(spawnCoroutine);
+                spawnCoroutine = null;
+            }
         }
 
         private IEnumerator SpawnCoroutine()
@@ -59,6 +68,20 @@ namespace Duality.Projectile
                 
                 yield return new WaitForSeconds(projectileSpawnerSettings.SecondsBetweenSpawns);
             }
+        }
+
+        #endregion
+
+        #region Callbacks
+
+        public void OnGameRoundBegun()
+        {
+            StartSpawning();
+        }
+
+        public void OnGameRoundEnd()
+        {
+            StopSpawning();
         }
 
         #endregion

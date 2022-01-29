@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6978594960749118073}
   - component: {fileID: 6978594960749118072}
+  - component: {fileID: 2937171729089417882}
+  - component: {fileID: 5001743141771118935}
   m_Layer: 0
   m_Name: Player1ProjectileSpawner
   m_TagString: Untagged
@@ -49,3 +51,61 @@ MonoBehaviour:
   opponentMask: {fileID: 0}
   projectileAllocator: {fileID: 0}
   projectileSpawnAnchor: {fileID: 0}
+--- !u!114 &2937171729089417882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6978594960749118079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c2c167d8138f94b8f96ff1b82578d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 9758d6c5276ec054d81dd0ce9ae8f31f, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6978594960749118072}
+        m_TargetAssemblyTypeName: Duality.Projectile.ProjectileSpawnerController,
+          Duality
+        m_MethodName: OnGameRoundBegun
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5001743141771118935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6978594960749118079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c2c167d8138f94b8f96ff1b82578d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 708c70a78fa9fcf4eb749c3caa76dfb6, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6978594960749118072}
+        m_TargetAssemblyTypeName: Duality.Projectile.ProjectileSpawnerController,
+          Duality
+        m_MethodName: OnGameRoundEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
