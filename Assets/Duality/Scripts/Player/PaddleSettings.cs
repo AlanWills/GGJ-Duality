@@ -16,6 +16,8 @@ namespace Duality.Player
         public float PaddleSpeed => paddleSpeed.Value;
         public float AimSpeed => aimSpeed.Value;
         public float MaxAimAngle => maxAimAngle.Value;
+        public float EnlargeScaleChange => enlargeScaleChange.Value;
+        public float ShrinkScaleChange => shrinkScaleChange.Value;
 
         [Header("Visuals")]
         [SerializeField] private bool overridePaddleColour = true;
@@ -25,6 +27,8 @@ namespace Duality.Player
         [SerializeField] private FloatValue paddleSpeed;
         [SerializeField] private FloatValue aimSpeed;
         [SerializeField] private FloatValue maxAimAngle;
+        [SerializeField] private FloatValue enlargeScaleChange;
+        [SerializeField] private FloatValue shrinkScaleChange;
 
         #endregion
     }

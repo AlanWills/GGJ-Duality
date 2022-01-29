@@ -11,11 +11,11 @@ namespace Duality.Projectile
     {
         #region Properties and Fields
 
-        public float InitialSpawnDelay => initialSpawnDelay = 5;
+        public float InitialSpawnDelay => initialSpawnDelay;
         public float SecondsBetweenSpawns => secondsBetweenSpawns;
         public float SpawnVelocity => spawnVelocity;
 
-        [SerializeField] private float initialSpawnDelay = 12;
+        [SerializeField] private float initialSpawnDelay = 5;
         [SerializeField] private float secondsBetweenSpawns = 12;
         [SerializeField] private int spawnQueueSize = 4;
         [SerializeField] private float spawnVelocity = 3;

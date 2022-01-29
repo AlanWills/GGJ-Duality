@@ -1,6 +1,8 @@
 using Celeste.Tools;
 using Celeste.UI.Layout;
 using Celeste.Utils;
+using Duality.Events;
+using System.Collections;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
@@ -10,11 +12,18 @@ namespace Duality.Player
     {
         #region Properties and Fields
 
+        public PaddleState PaddleState => paddleState;
+
+        [Header("Data")]
+        [SerializeField] private PaddleSettings paddleSettings;
+        [SerializeField] private PaddleState paddleState;
+
+        [Header("Runtime")]
         [SerializeField] private Rigidbody2D paddleRigidbody2D;
         [SerializeField] private SpriteRenderer paddleSpriteRenderer;
         [SerializeField] private Transform aimDirection;
         [SerializeField] private SpriteRenderer aimDirectionSpriteRenderer;
-        [SerializeField] private PaddleSettings paddleSettings;
+        [SerializeField] private GameObject frozenEffectGameObject;
         [SerializeField] private ReferenceLayout gameBounds;
         [SerializeField] private float angleMultiplier = 1;
 
@@ -95,17 +104,72 @@ namespace Duality.Player
 
         #endregion
 
+        private IEnumerator RemoveStatusAfter(PaddleStatus status, float seconds)
+        {
+            yield return new WaitForSeconds(seconds);
+
+            paddleState.RemoveStatus(status);
+        }
+
         #region Callbacks
 
         public void OnMove(CallbackContext context)
         {
-            moving = context.performed;
+            moving = context.performed && !paddleState.HasStatus(PaddleStatus.Freeze);
             currentNormalizedVelocity = context.ReadValue<Vector2>();
         }
 
         public void OnAim(CallbackContext context)
         {
             aiming = context.performed;
+        }
+
+        public void OnPaddleStatusAdded(PaddleStatusAddedArgs statusAddedArgs)
+        {
+            PaddleStatus status = statusAddedArgs.statusApplied;
+
+            if ((status & PaddleStatus.Freeze) == PaddleStatus.Freeze)
+            {
+                if (frozenEffectGameObject != null)
+                {
+                    frozenEffectGameObject.SetActive(true);
+                }
+            }
+
+            if ((status & PaddleStatus.Enlarge) == PaddleStatus.Enlarge)
+            {
+                transform.localScale += new Vector3(paddleSettings.EnlargeScaleChange, 0, 0);
+            }
+
+            if ((status & PaddleStatus.Shrink) == PaddleStatus.Shrink)
+            {
+                transform.localScale -= new Vector3(paddleSettings.ShrinkScaleChange, 0, 0);
+            }
+
+            StartCoroutine(RemoveStatusAfter(status, statusAddedArgs.secondsAppliedFor));
+        }
+
+        public void OnPaddleStatusRemoved(PaddleStatusRemovedArgs statusRemovedArgs)
+        {
+            PaddleStatus status = statusRemovedArgs.statusRemoved;
+
+            if ((status & PaddleStatus.Freeze) == PaddleStatus.Freeze)
+            {
+                if (frozenEffectGameObject != null)
+                {
+                    frozenEffectGameObject.SetActive(false);
+                }
+            }
+
+            if ((status & PaddleStatus.Enlarge) == PaddleStatus.Enlarge)
+            {
+                transform.localScale -= new Vector3(paddleSettings.EnlargeScaleChange, 0, 0);
+            }
+
+            if ((status & PaddleStatus.Shrink) == PaddleStatus.Shrink)
+            {
+                transform.localScale += new Vector3(paddleSettings.ShrinkScaleChange, 0, 0);
+            }
         }
 
         #endregion

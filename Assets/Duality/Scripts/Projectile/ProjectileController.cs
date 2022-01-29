@@ -61,6 +61,7 @@ namespace Duality.Projectile
 
             if (collision.CompareTag("Paddle"))
             {
+                PaddleState paddleState = collision.GetComponent<PaddleController>().PaddleState;
                 int collisionMask = collision.GetComponent<PlayerMask>().Mask;
                 Debug.Assert(playerMask != -1, $"Player Mask as been unset - did you deactivate the game object before resolving a collision?");
 
@@ -73,7 +74,18 @@ namespace Duality.Projectile
                     projectileSettings.HitOpponentsPaddle(playerMask, opponentMask);
                 }
 
-                if (projectileSettings.DieOnHitPaddle)
+                bool appliesStatus = projectileSettings.AppliesStatus;
+                bool paddleHasStatus = appliesStatus && paddleState.HasStatus(projectileSettings.StatusToApply);
+
+                // We should only die if we've marked we should die on paddle hit and we don't apply a status, or the paddle does not have the status
+                bool shouldDie = projectileSettings.DieOnHitPaddle && (!appliesStatus || !paddleHasStatus);
+
+                if (appliesStatus && !paddleHasStatus)
+                {
+                    paddleState.AddStatus(projectileSettings.StatusToApply, projectileSettings.SecondsToApplyFor);
+                }
+
+                if (shouldDie)
                 {
                     gameObject.SetActive(false);
                 }

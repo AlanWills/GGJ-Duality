@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Freeze
   m_EditorClassIdentifier: 
   dieOnHitPaddle: 1
+  appliesStatus: 1
+  statusToApply: 4
+  secondsToApplyFor: 5
   yourPointsIfCrossesYourLine: 0
   yourPointsIfCrossesOpponentLine: 0
   yourPointsIfHitsYourPaddle: 0

@@ -1,4 +1,5 @@
 ﻿using Celeste.Tools.Attributes.GUI;
+using Duality.Player;
 using UnityEngine;
 
 namespace Duality.Projectile
@@ -9,11 +10,17 @@ namespace Duality.Projectile
         #region Properties and Fields
 
         public bool DieOnHitPaddle => dieOnHitPaddle;
+        public bool AppliesStatus => appliesStatus;
+        public PaddleStatus StatusToApply => statusToApply;
+        public float SecondsToApplyFor => secondsToApplyFor;
 
         public Sprite UISprite => uiSprite;
 
         [Header("Behaviour")]
         [SerializeField] private bool dieOnHitPaddle = false;
+        [SerializeField] private bool appliesStatus = false;
+        [SerializeField, ShowIf(nameof(appliesStatus))] private PaddleStatus statusToApply = PaddleStatus.None;
+        [SerializeField, ShowIf(nameof(appliesStatus))] private float secondsToApplyFor = 3;
 
         [Header("Points")]
         [SerializeField] private int yourPointsIfCrossesYourLine;
