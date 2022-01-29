@@ -42,6 +42,8 @@ namespace Duality.Projectile
 
         private IEnumerator SpawnCoroutine()
         {
+            yield return new WaitForSeconds(projectileSpawnerSettings.InitialSpawnDelay);
+
             while (spawning)
             {
                 ProjectileSettings projectileSettings = spawnQueue.Push(projectileSpawnerSettings.GetNextItem());

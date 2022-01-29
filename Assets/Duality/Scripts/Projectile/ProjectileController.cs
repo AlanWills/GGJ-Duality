@@ -54,16 +54,9 @@ namespace Duality.Projectile
 
             if (collision.CompareTag("Paddle"))
             {
-                if (projectileSettings.DieOnHitPaddle)
-                {
-                    gameObject.SetActive(false);
-                }
-                else
-                {
-                    projectileRigidbody.velocity *= new Vector2(-1, 1);
-                }
-
                 int collisionMask = collision.GetComponent<PlayerMask>().Mask;
+                Debug.Assert(playerMask != -1, $"Player Mask as been unset - did you deactivate the game object before resolving a collision?");
+
                 if (collisionMask == playerMask)
                 {
                     projectileSettings.HitYourPaddle(collisionMask);
@@ -72,12 +65,21 @@ namespace Duality.Projectile
                 {
                     projectileSettings.HitOpponentsPaddle(collisionMask);
                 }
+
+                if (projectileSettings.DieOnHitPaddle)
+                {
+                    gameObject.SetActive(false);
+                }
+                else
+                {
+                    projectileRigidbody.velocity *= new Vector2(-1, 1);
+                }
             }
             else if (collision.CompareTag("Lines"))
             {
-                gameObject.SetActive(false);
-
                 int collisionMask = collision.GetComponent<PlayerMask>().Mask;
+                Debug.Assert(playerMask != -1, $"Player Mask as been unset - did you deactivate the game object before resolving a collision?");
+
                 if (collisionMask == playerMask)
                 {
                     projectileSettings.CrossedYourLine(collisionMask);
@@ -86,6 +88,8 @@ namespace Duality.Projectile
                 {
                     projectileSettings.CrossedOpponentsLine(collisionMask);
                 }
+
+                gameObject.SetActive(false);
             }
             else if (collision.CompareTag("Bounds"))
             {

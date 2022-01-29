@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Celeste.DataStructures;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Duality.Projectile
@@ -8,9 +9,11 @@ namespace Duality.Projectile
     {
         #region Properties and Fields
 
+        public int NumItemsInQueue => spawnQueue.Count;
+
         [SerializeField] private Celeste.Events.Event spawnQueueChanged;
 
-        private Queue<ProjectileSettings> spawnQueue = new Queue<ProjectileSettings>();
+        private List<ProjectileSettings> spawnQueue = new List<ProjectileSettings>();
 
         #endregion
 
@@ -20,7 +23,7 @@ namespace Duality.Projectile
 
             for (int i = 0, n = startingItems.Count; i < n; ++i)
             {
-                spawnQueue.Enqueue(startingItems[i]);
+                spawnQueue.Add(startingItems[i]);
             }
 
             spawnQueueChanged.Invoke();
@@ -28,11 +31,17 @@ namespace Duality.Projectile
 
         public ProjectileSettings Push(ProjectileSettings newItem)
         {
-            ProjectileSettings spawnedItem = spawnQueue.Dequeue();
-            spawnQueue.Enqueue(newItem);
+            ProjectileSettings spawnedItem = spawnQueue[0];
+            spawnQueue.RemoveAt(0);
+            spawnQueue.Add(newItem);
             spawnQueueChanged.InvokeSilently();
 
             return spawnedItem;
+        }
+
+        public ProjectileSettings GetItem(int index)
+        {
+            return spawnQueue.Get(index);
         }
     }
 }
