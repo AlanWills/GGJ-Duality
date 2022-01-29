@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65d22ea62bc4ded488f6c6840f75a2c8, type: 3}
-  m_Name: GameAreaReferenceLayout
+  m_Name: GameArea
   m_EditorClassIdentifier: 

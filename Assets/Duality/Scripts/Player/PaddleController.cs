@@ -1,11 +1,10 @@
 using Celeste.Tools;
 using Celeste.UI.Layout;
 using Celeste.Utils;
-using Duality.Player;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
-namespace Duality.Input
+namespace Duality.Player
 {
     public class PaddleController : MonoBehaviour
     {
@@ -13,10 +12,14 @@ namespace Duality.Input
 
         [SerializeField] private Rigidbody2D paddleRigidbody2D;
         [SerializeField] private SpriteRenderer paddleSpriteRenderer;
+        [SerializeField] private Transform aimDirection;
+        [SerializeField] private SpriteRenderer aimDirectionSpriteRenderer;
         [SerializeField] private PaddleSettings paddleSettings;
         [SerializeField] private ReferenceLayout gameBounds;
 
         private bool moving;
+        private bool aiming;
+        private float currentAimAngle = 0;
         private Vector2 currentNormalizedVelocity;
         private Vector3 gameBoundsMinWorldSpace;
         private Vector3 gameBoundsMaxWorldSpace;
@@ -33,9 +36,12 @@ namespace Duality.Input
 
         private void Awake()
         {
+            currentAimAngle = 0;
+
             if (paddleSettings.OverridePaddleColour)
             {
                 paddleSpriteRenderer.color = paddleSettings.PaddleColour;
+                aimDirectionSpriteRenderer.color = paddleSettings.PaddleColour;
             }
         }
 
@@ -51,9 +57,22 @@ namespace Duality.Input
             gameBoundsMaxWorldSpace = Camera.main.ScreenToWorldPoint(new Vector3(gameBoundsUISpace.xMax, gameBoundsUISpace.yMax, 0));
         }
 
+        private void Update()
+        {
+            if (aiming)
+            {
+                if (currentNormalizedVelocity.y != 0)
+                {
+                    float delta = Time.deltaTime * paddleSettings.AimSpeed * currentNormalizedVelocity.y;
+                    currentAimAngle = Mathf.Clamp(currentAimAngle + delta, -paddleSettings.MaxAimAngle, paddleSettings.MaxAimAngle);
+                    aimDirection.localRotation = Quaternion.AngleAxis(currentAimAngle, new Vector3(0, 0, 1));
+                }
+            }
+        }
+
         private void FixedUpdate()
         {
-            if (moving)
+            if (!aiming && moving)
             {
                 float multiplier = Time.fixedDeltaTime * paddleSettings.PaddleSpeed;
                 Vector2 delta = currentNormalizedVelocity;
@@ -79,6 +98,11 @@ namespace Duality.Input
         {
             moving = context.performed;
             currentNormalizedVelocity = context.ReadValue<Vector2>();
+        }
+
+        public void OnAim(CallbackContext context)
+        {
+            aiming = context.performed;
         }
 
         #endregion

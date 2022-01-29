@@ -6,7 +6,11 @@
         "Celeste.Tools",
         "Celeste.Parameters",
         "Celeste.UI",
-        "Celeste.Scene"
+        "Celeste.Scene",
+        "Celeste.Events",
+        "Celeste.DataStructures",
+        "Celeste.Memory",
+        "Celeste.Maths"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
