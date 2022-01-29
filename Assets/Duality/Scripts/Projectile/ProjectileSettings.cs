@@ -16,10 +16,14 @@ namespace Duality.Projectile
         [SerializeField] private bool dieOnHitPaddle = false;
 
         [Header("Points")]
-        [SerializeField] private int pointsOnCrossYourLine;
-        [SerializeField] private int pointsOnCrossOpponentLine;
-        [SerializeField] private int pointsOnHitYourPaddle;
-        [SerializeField] private int pointsOnHitOpponentPaddle;
+        [SerializeField] private int yourPointsIfCrossesYourLine;
+        [SerializeField] private int yourPointsIfCrossesOpponentLine;
+        [SerializeField] private int yourPointsIfHitsYourPaddle;
+        [SerializeField] private int yourPointsIfHitsOpponentPaddle;
+        [SerializeField] private int opponentPointsIfCrossesYourLine;
+        [SerializeField] private int opponentPointsIfCrossesOpponentLine;
+        [SerializeField] private int opponentPointsIfHitsYourPaddle;
+        [SerializeField] private int opponentPointsIfHitsOpponentPaddle;
 
         [Header("Visuals")]
         [SerializeField] private Sprite uiSprite;
@@ -29,35 +33,55 @@ namespace Duality.Projectile
 
         #endregion
 
-        public void HitYourPaddle(int playerMask)
+        public void HitYourPaddle(int playerMask, int opponentMask)
         {
-            if (pointsOnHitYourPaddle != 0)
+            if (yourPointsIfHitsYourPaddle != 0)
             {
-                projectileCommonEvents.AddPoints(playerMask, pointsOnHitYourPaddle);
+                projectileCommonEvents.AddPoints(playerMask, yourPointsIfHitsYourPaddle);
+            }
+
+            if (opponentPointsIfHitsYourPaddle != 0)
+            {
+                projectileCommonEvents.AddPoints(opponentMask, opponentPointsIfHitsYourPaddle);
             }
         }
 
-        public void HitOpponentsPaddle(int playerMask)
+        public void HitOpponentsPaddle(int playerMask, int opponentMask)
         {
-            if (pointsOnHitOpponentPaddle != 0)
+            if (yourPointsIfHitsOpponentPaddle != 0)
             {
-                projectileCommonEvents.AddPoints(playerMask, pointsOnHitOpponentPaddle);
+                projectileCommonEvents.AddPoints(playerMask, yourPointsIfHitsOpponentPaddle);
+            }
+
+            if (opponentPointsIfHitsOpponentPaddle != 0)
+            {
+                projectileCommonEvents.AddPoints(opponentMask, opponentPointsIfHitsOpponentPaddle);
             }
         }
 
-        public void CrossedYourLine(int playerMask)
+        public void CrossedYourLine(int playerMask, int opponentMask)
         {
-            if (pointsOnCrossYourLine != 0)
+            if (yourPointsIfCrossesYourLine != 0)
             {
-                projectileCommonEvents.AddPoints(playerMask, pointsOnCrossYourLine);
+                projectileCommonEvents.AddPoints(playerMask, yourPointsIfCrossesYourLine);
+            }
+
+            if (opponentPointsIfCrossesYourLine != 0)
+            {
+                projectileCommonEvents.AddPoints(opponentMask, opponentPointsIfCrossesYourLine);
             }
         }
 
-        public void CrossedOpponentsLine(int playerMask)
+        public void CrossedOpponentsLine(int playerMask, int opponentMask)
         {
-            if (pointsOnCrossOpponentLine != 0)
+            if (yourPointsIfCrossesOpponentLine != 0)
             {
-                projectileCommonEvents.AddPoints(playerMask, pointsOnCrossOpponentLine);
+                projectileCommonEvents.AddPoints(playerMask, yourPointsIfCrossesOpponentLine);
+            }
+
+            if (opponentPointsIfCrossesOpponentLine != 0)
+            {
+                projectileCommonEvents.AddPoints(opponentMask, opponentPointsIfCrossesOpponentLine);
             }
         }
     }

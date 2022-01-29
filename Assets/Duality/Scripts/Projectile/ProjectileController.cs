@@ -16,12 +16,19 @@ namespace Duality.Projectile
         [SerializeField] private Rigidbody2D projectileRigidbody;
 
         private int playerMask;
+        private int opponentMask;
 
         #endregion
 
-        public void Hookup(Vector3 position, Quaternion rotation, float forwardVelocity, int playerMask)
+        public void Hookup(
+            Vector3 position, 
+            Quaternion rotation, 
+            float forwardVelocity, 
+            int playerMask,
+            int opponentMask)
         {
             this.playerMask = playerMask;
+            this.opponentMask = opponentMask;
 
             transform.position = position;
             transform.rotation = rotation;
@@ -59,11 +66,11 @@ namespace Duality.Projectile
 
                 if (collisionMask == playerMask)
                 {
-                    projectileSettings.HitYourPaddle(collisionMask);
+                    projectileSettings.HitYourPaddle(playerMask, opponentMask);
                 }
                 else
                 {
-                    projectileSettings.HitOpponentsPaddle(collisionMask);
+                    projectileSettings.HitOpponentsPaddle(playerMask, opponentMask);
                 }
 
                 if (projectileSettings.DieOnHitPaddle)
@@ -82,11 +89,11 @@ namespace Duality.Projectile
 
                 if (collisionMask == playerMask)
                 {
-                    projectileSettings.CrossedYourLine(collisionMask);
+                    projectileSettings.CrossedYourLine(playerMask, opponentMask);
                 }
                 else
                 {
-                    projectileSettings.CrossedOpponentsLine(collisionMask);
+                    projectileSettings.CrossedOpponentsLine(playerMask, opponentMask);
                 }
 
                 gameObject.SetActive(false);

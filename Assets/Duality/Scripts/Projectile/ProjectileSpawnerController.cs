@@ -11,7 +11,8 @@ namespace Duality.Projectile
 
         [SerializeField] private ProjectileSpawnerSettings projectileSpawnerSettings;
         [SerializeField] private SpawnQueue spawnQueue;
-        [SerializeField] private IntValue playerMask;
+        [SerializeField] private IntReference playerMask;
+        [SerializeField] private IntReference opponentMask;
         [SerializeField] private ProjectileAllocator projectileAllocator;
         [SerializeField] private Transform projectileSpawnAnchor;
 
@@ -53,7 +54,8 @@ namespace Duality.Projectile
                     projectileSpawnAnchor.position,
                     projectileSpawnAnchor.rotation,
                     projectileSpawnerSettings.SpawnVelocity,
-                    playerMask.Value);
+                    playerMask.Value,
+                    opponentMask.Value);
                 
                 yield return new WaitForSeconds(projectileSpawnerSettings.SecondsBetweenSpawns);
             }
