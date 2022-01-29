@@ -12,8 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a2d9c6a693760443a7796d5b64f8303, type: 3}
   m_Name: ProjectileSpawnerSettings
   m_EditorClassIdentifier: 
+  initialSpawnDelay: 5
   secondsBetweenSpawns: 12
   spawnQueueSize: 4
+  spawnVelocity: 3
   projectiles:
   - shuffleBagSize: 1
+    projectileSettings: {fileID: 11400000, guid: 276b4eecb1cda384ea1edfe675119eb4, type: 2}
+  - shuffleBagSize: 1
+    projectileSettings: {fileID: 11400000, guid: 086481eddd2088146b78941bcdd1f5c7, type: 2}
+  - shuffleBagSize: 1
+    projectileSettings: {fileID: 11400000, guid: 3d154e1cb606b4b4895fb102064c2f19, type: 2}
+  - shuffleBagSize: 1
+    projectileSettings: {fileID: 11400000, guid: 050af653779ba4147afad6eab02c8492, type: 2}
+  - shuffleBagSize: 1
     projectileSettings: {fileID: 11400000, guid: 954894bd79df8db4baeec4fd733c3116, type: 2}
+  - shuffleBagSize: 1
+    projectileSettings: {fileID: 11400000, guid: b72827679cc935849a7799942f9f3900, type: 2}
+  - shuffleBagSize: 1
+    projectileSettings: {fileID: 11400000, guid: 84eb66d91d7496e4d96924dd170a4fea, type: 2}
+  - shuffleBagSize: 1
+    projectileSettings: {fileID: 11400000, guid: 203c4fc1f135aa744bbb0c81c564a9a3, type: 2}
+  - shuffleBagSize: 1
+    projectileSettings: {fileID: 11400000, guid: 44f8482f3b70cc34b8bf2838e96276ac, type: 2}

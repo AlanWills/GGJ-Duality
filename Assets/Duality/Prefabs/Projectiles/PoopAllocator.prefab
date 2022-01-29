@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3286654714148052704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6282160407964072595}
   m_RootOrder: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d88521bd0e0adee4990183113913fb96, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 14139b37780f84379b96f9d0df6ef913, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -92,10 +92,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6282160407964072595}
   - component: {fileID: 1009708030167167255}
-  - component: {fileID: 7202587780544002318}
   - component: {fileID: 3030564615727480267}
+  - component: {fileID: 6642502819239997259}
   m_Layer: 6
-  m_Name: GoldProjectile
+  m_Name: PoopAllocator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,35 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229a34ca847868f4bbfff10dcbf35c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSettings: {fileID: 11400000, guid: 954894bd79df8db4baeec4fd733c3116, type: 2}
+  projectileSettings: {fileID: 11400000, guid: 84eb66d91d7496e4d96924dd170a4fea, type: 2}
   projectileSpriteRenderer: {fileID: 7665328352135952180}
   projectileRigidbody: {fileID: 3030564615727480267}
---- !u!61 &7202587780544002318
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6282160407964072592}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.01, y: 0.01}
-    newSize: {x: 0.15, y: 0.1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1}
-  m_EdgeRadius: 0
 --- !u!50 &3030564615727480267
 Rigidbody2D:
   serializedVersion: 4
@@ -178,3 +152,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!60 &6642502819239997259
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6282160407964072592}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.00068547204, y: 0.17206293}
+      - {x: -0.10052842, y: -0.055984676}
+      - {x: -0.118769765, y: -0.19590247}
+      - {x: 0.14044812, y: -0.19619545}
+      - {x: 0.10429129, y: -0.045190915}

@@ -81,9 +81,11 @@ namespace Duality.Player
                 delta.y *= multiplier;
 
                 Vector3 projectedPosition = paddleRigidbody2D.position + delta;
-                Vector3 transformSize = paddleSpriteRenderer.transform.lossyScale;
-                float halfWidth = paddleSpriteRenderer.sprite.bounds.extents.x * transformSize.x;
-                float halfHeight = paddleSpriteRenderer.sprite.bounds.extents.y * transformSize.y;
+                Vector3 halfSize = paddleSpriteRenderer.transform.TransformVector(paddleSpriteRenderer.sprite.bounds.extents);
+
+                float halfWidth = Mathf.Abs(halfSize.x);
+                float halfHeight = Mathf.Abs(halfSize.y);
+
                 projectedPosition.x = Mathf.Clamp(projectedPosition.x, gameBoundsMinWorldSpace.x + halfWidth, gameBoundsMaxWorldSpace.x - halfWidth);
                 projectedPosition.y = Mathf.Clamp(projectedPosition.y, gameBoundsMinWorldSpace.y + halfHeight, gameBoundsMaxWorldSpace.y - halfHeight);
 
