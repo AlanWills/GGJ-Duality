@@ -16,6 +16,9 @@ namespace Duality.GameRound
         [SerializeField] private GameObject countdownUI;
         [SerializeField] private TextMeshProUGUI countdownText;
         [SerializeField] private TextMeshProUGUI gameRoundTimeText;
+        [SerializeField] private GameObject gameRoundOverUI;
+
+        private Coroutine gameRoundCoroutine;
 
         #endregion
 
@@ -23,21 +26,41 @@ namespace Duality.GameRound
 
         private void Start()
         {
-            StartCoroutine(GameRound());
+            StartGameRound();
         }
 
         #endregion
+
+        #region Callbacks
+
+        public void OnGameRoundReset()
+        {
+            StartGameRound();
+        }
+
+        #endregion
+
+        private void StartGameRound()
+        {
+            if (gameRoundCoroutine != null)
+            {
+                StopCoroutine(gameRoundCoroutine);
+                gameRoundCoroutine = null;
+            }
+
+            gameRoundCoroutine = StartCoroutine(GameRound());
+
+        }
 
         private IEnumerator GameRound()
         {
             gameRoundTimeText.text = ToTimeString(Mathf.CeilToInt(gameRoundSettings.GameRoundSeconds));
 
-            yield return new WaitForSeconds(1);
-
             float currentCountdown = gameRoundSettings.CountdownSeconds;
             float currentSecond = 1;
 
             countdownUI.SetActive(true);
+            gameRoundOverUI.SetActive(false);
 
             while (currentCountdown > 0)
             {
@@ -69,7 +92,6 @@ namespace Duality.GameRound
             }
 
             countdownUI.SetActive(false);
-
             beginRound.Invoke();
 
             float gameRoundTimeRemaining = gameRoundSettings.GameRoundSeconds;
@@ -81,7 +103,24 @@ namespace Duality.GameRound
                 gameRoundTimeRemaining -= Time.deltaTime;
             }
 
+            gameRoundTimeText.text = "0:00";
             endRound.Invoke();
+
+            currentSecond = 1;
+            countdownText.text = "Time's Up!";
+
+            while (currentSecond > 0)
+            {
+                countdownText.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, currentSecond * currentSecond * currentSecond);
+
+                yield return null;
+
+                currentSecond -= Time.deltaTime;
+            }
+
+            yield return new WaitForSeconds(1);
+
+            gameRoundOverUI.SetActive(true);
         }
 
         private string ToTimeString(int seconds)

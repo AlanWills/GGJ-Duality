@@ -25,13 +25,18 @@ namespace Duality.Projectile
 
         private void Start()
         {
-            projectileSpawnerSettings.Hookup();
-            spawnQueue.Hookup(projectileSpawnerSettings.CreateStartingSpawnQueue());
+            HookupSpawning();
         }
 
         #endregion
 
         #region Spawning
+
+        private void HookupSpawning()
+        {
+            projectileSpawnerSettings.Hookup();
+            spawnQueue.Hookup(projectileSpawnerSettings.CreateStartingSpawnQueue());
+        }
 
         private void StartSpawning()
         {
@@ -82,6 +87,11 @@ namespace Duality.Projectile
         public void OnGameRoundEnd()
         {
             StopSpawning();
+        }
+
+        public void OnGameRoundReset()
+        {
+            HookupSpawning();
         }
 
         #endregion

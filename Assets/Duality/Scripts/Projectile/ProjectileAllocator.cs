@@ -15,7 +15,11 @@ namespace Duality.Projectile
             public GameObjectAllocator allocator;
         }
 
+        #region Properties and Fields
+
         [SerializeField] private AllocatorForProjectile[] allocators;
+
+        #endregion
 
         public GameObject Allocate(ProjectileSettings projectileSettings)
         {
@@ -27,5 +31,17 @@ namespace Duality.Projectile
 
             return null;
         }
+
+        #region Callbacks
+
+        public void OnGameRoundEnd()
+        {
+            for (int i = 0, n = allocators.Length; i < n; ++i)
+            {
+                allocators[i].allocator.DeallocateAll();
+            }
+        }
+
+        #endregion
     }
 }

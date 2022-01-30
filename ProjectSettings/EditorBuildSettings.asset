@@ -6,9 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Duality/Scenes/Splash.unity
+    guid: 2fb72a290f0276d44a5f13755d8492e5
+  - enabled: 1
+    path: Assets/Duality/Scenes/MainMenu.unity
+    guid: 0c1875fee778fcf4db849d63d941748f
+  - enabled: 1
     path: Assets/Celeste/Engine/Scenes/EngineSystems.unity
     guid: 4e3ef088ffc27a4429c68fc486e0ecbe
   - enabled: 1
     path: Assets/Duality/Scenes/Duality.unity
     guid: 9bc3b35ebb2ac8f48b204bc90804ca37
+  - enabled: 1
+    path: Assets/Duality/Scenes/ChallengeMenu.unity
+    guid: 64d9ff6dbcb01da4e8cc542644b1dd06
+  - enabled: 1
+    path: Assets/Duality/Scenes/Controls.unity
+    guid: bf4ea50a5a124bc418834d28afd0f50c
+  - enabled: 1
+    path: Assets/Duality/Scenes/Tutorial.unity
+    guid: 23a9cad34bd7ff341bd09555728fe726
   m_configObjects: {}
