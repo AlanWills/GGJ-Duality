@@ -195,7 +195,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <sprite name="coin_1">   =   +50 points if you let it through
+  m_text: <sprite name="coin_1">   =   +25 points if you let it through
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c215df019120f9439e9a896575ad6bf, type: 2}
   m_sharedMaterial: {fileID: -785524073444454731, guid: 8c215df019120f9439e9a896575ad6bf, type: 2}
@@ -2035,7 +2035,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <sprite name="plastic">     =   -25 points if you let it through
+  m_text: <sprite name="plastic">     =   -30 points if you let it through
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c215df019120f9439e9a896575ad6bf, type: 2}
   m_sharedMaterial: {fileID: -785524073444454731, guid: 8c215df019120f9439e9a896575ad6bf, type: 2}

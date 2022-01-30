@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: GameRoundSettings
   m_EditorClassIdentifier: 
   countdownSeconds: 3
-  gameRoundSeconds: 150
+  gameRoundSeconds: 10
+  timeAlmostUp: 5

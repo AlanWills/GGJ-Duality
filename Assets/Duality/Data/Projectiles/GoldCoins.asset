@@ -20,15 +20,16 @@ MonoBehaviour:
   secondsToApplyFor: 3
   isIgnoredByStatus: 0
   ignoredByStatus: 1
-  yourPointsIfCrossesYourLine: 50
+  yourPointsIfCrossesYourLine: 25
   yourPointsIfCrossesOpponentLine: 0
   yourPointsIfHitsYourPaddle: 0
   yourPointsIfHitsOpponentPaddle: 0
   opponentPointsIfCrossesYourLine: 0
-  opponentPointsIfCrossesOpponentLine: 50
+  opponentPointsIfCrossesOpponentLine: 25
   opponentPointsIfHitsYourPaddle: 0
   opponentPointsIfHitsOpponentPaddle: 0
   uiSprite: {fileID: 21300000, guid: 7c9a815d5aba141538e07fc3ac57d177, type: 3}
+  onHitPaddleFX: {fileID: 0}
   onBounceSFX: {fileID: 8300000, guid: 071625d6adab8416dab1f5f48b7c61f2, type: 3}
   onHitPaddleSFX: {fileID: 0}
   onCrossedLineSFX: {fileID: 8300000, guid: 5bb5fbd9720a1482da6625b2cc4ff2ba, type: 3}

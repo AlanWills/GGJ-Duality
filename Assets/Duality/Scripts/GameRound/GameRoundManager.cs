@@ -27,6 +27,7 @@ namespace Duality.GameRound
 
         [SerializeField] private UnityEvent countdownTick;
         [SerializeField] private UnityEvent countdownDone;
+        [SerializeField] private UnityEvent timeAlmostUpTick;
 
         private Coroutine gameRoundCoroutine;
 
@@ -122,9 +123,10 @@ namespace Duality.GameRound
 
                 currentGameRoundTimeRemaining -= 1;
 
-                if (currentGameRoundTimeRemaining == gameRoundSettings.TimeAlmostUp)
+                if (currentGameRoundTimeRemaining.Value <= gameRoundSettings.TimeAlmostUp)
                 {
                     countdownBackground.color = timeAlmostUpColour;
+                    timeAlmostUpTick.Invoke();
                 }
             }
 
