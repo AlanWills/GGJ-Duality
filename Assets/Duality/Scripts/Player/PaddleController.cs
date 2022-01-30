@@ -24,6 +24,7 @@ namespace Duality.Player
         [SerializeField] private Transform aimDirection;
         [SerializeField] private SpriteRenderer aimDirectionSpriteRenderer;
         [SerializeField] private GameObject frozenEffectGameObject;
+        [SerializeField] private GameObject shieldEffectGameObject;
         [SerializeField] private ReferenceLayout gameBounds;
         [SerializeField] private float angleMultiplier = 1;
 
@@ -152,6 +153,14 @@ namespace Duality.Player
                 Debug.Assert(transform.localScale.x >= (1 - paddleSettings.ShrinkScaleChange), $"Local Scale less than 0.5f.");
             }
 
+            if ((status & PaddleStatus.Shield) == PaddleStatus.Shield)
+            {
+                if (shieldEffectGameObject != null)
+                {
+                    shieldEffectGameObject.SetActive(true);
+                }
+            }
+
             StartCoroutine(RemoveStatusAfter(status, statusAddedArgs.secondsAppliedFor));
         }
 
@@ -176,6 +185,14 @@ namespace Duality.Player
             if ((status & PaddleStatus.Shrink) == PaddleStatus.Shrink)
             {
                 transform.localScale += new Vector3(paddleSettings.ShrinkScaleChange, 0, 0);
+            }
+
+            if ((status & PaddleStatus.Shield) == PaddleStatus.Shield)
+            {
+                if (shieldEffectGameObject != null)
+                {
+                    shieldEffectGameObject.SetActive(false);
+                }
             }
         }
 

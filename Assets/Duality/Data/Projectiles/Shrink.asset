@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae524c6c2ce6344886b64c8dfa732b1, type: 3}
   m_Name: Shrink
   m_EditorClassIdentifier: 
+  extraFiringSpeed: 0
+  bounceIncrease: 0.2
   dieOnHitPaddle: 1
   appliesStatus: 1
-  statusToApply: 17
+  statusToApply: 16
   secondsToApplyFor: 5
+  isIgnoredByStatus: 1
+  ignoredByStatus: 16
   yourPointsIfCrossesYourLine: 0
   yourPointsIfCrossesOpponentLine: 0
   yourPointsIfHitsYourPaddle: 0

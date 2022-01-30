@@ -20,12 +20,12 @@ MonoBehaviour:
   secondsToApplyFor: 3
   isIgnoredByStatus: 0
   ignoredByStatus: 1
-  yourPointsIfCrossesYourLine: 0
-  yourPointsIfCrossesOpponentLine: 25
+  yourPointsIfCrossesYourLine: -25
+  yourPointsIfCrossesOpponentLine: 0
   yourPointsIfHitsYourPaddle: 0
   yourPointsIfHitsOpponentPaddle: 0
-  opponentPointsIfCrossesYourLine: 25
-  opponentPointsIfCrossesOpponentLine: 0
+  opponentPointsIfCrossesYourLine: 0
+  opponentPointsIfCrossesOpponentLine: -25
   opponentPointsIfHitsYourPaddle: 0
   opponentPointsIfHitsOpponentPaddle: 0
   uiSprite: {fileID: 21300000, guid: 1fb48c9bff974488086b84a66cb455b9, type: 3}
