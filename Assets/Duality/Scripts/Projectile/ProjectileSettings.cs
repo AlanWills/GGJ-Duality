@@ -21,6 +21,7 @@ namespace Duality.Projectile
         public PaddleStatus IgnoredByStatus => ignoredByStatus;
 
         public Sprite UISprite => uiSprite;
+        public Vector3Event OnHitPaddleFX => onHitPaddleFX;
         public AudioClip OnBounceSFX => onBounceSFX;
         public AudioClip OnHitPaddleSFX => onHitPaddleSFX;
         public AudioClip OnCrossedLineSFX => onCrossedLineSFX;
@@ -47,6 +48,7 @@ namespace Duality.Projectile
 
         [Header("Visuals")]
         [SerializeField] private Sprite uiSprite;
+        [SerializeField] private Vector3Event onHitPaddleFX;
 
         [Header("Audio")]
         [SerializeField] private AudioClip onBounceSFX;

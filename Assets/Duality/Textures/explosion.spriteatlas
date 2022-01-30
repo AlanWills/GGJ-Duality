@@ -26,8 +26,8 @@ SpriteAtlas:
       padding: 4
       blockOffset: 1
       allowAlphaSplitting: 0
-      enableRotation: 1
-      enableTightPacking: 1
+      enableRotation: 0
+      enableTightPacking: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
@@ -44,8 +44,26 @@ SpriteAtlas:
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites: []
-  m_PackedSpriteNamesToIndex: []
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 3f02d5309131e43b9bcabe63e49bd67e, type: 3}
+  - {fileID: 21300000, guid: b28166e17d1a34332b4a3a5d10622638, type: 3}
+  - {fileID: 21300000, guid: 1d8607b2de8a7474691a532f388a89a4, type: 3}
+  - {fileID: 21300000, guid: 047ad7845e0464f5fa68c4daaeedc2b7, type: 3}
+  - {fileID: 21300000, guid: 0ecbef9a530164950b296c5a376e1d00, type: 3}
+  - {fileID: 21300000, guid: 4910e9cac06f246ecbada8f9cddc436b, type: 3}
+  - {fileID: 21300000, guid: 6878964c255584eb4911166960ea7325, type: 3}
+  - {fileID: 21300000, guid: 431eb96c6b556411db8fd581e4836c76, type: 3}
+  - {fileID: 21300000, guid: 62a7c86f3e57845faa92e3c98411a21b, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - explosion_frame5
+  - explosion_frame1
+  - explosion_frame7
+  - explosion_frame8
+  - explosion_frame4
+  - explosion_frame9
+  - explosion_frame3
+  - explosion_frame6
+  - explosion_frame2
   m_RenderDataMap: {}
   m_Tag: explosion
   m_IsVariant: 0
