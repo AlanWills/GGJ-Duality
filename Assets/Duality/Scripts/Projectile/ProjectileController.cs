@@ -1,9 +1,6 @@
 ﻿using Celeste.Events;
 using Celeste.Tools;
-using Celeste.UI.Layout;
-using Celeste.Utils;
 using Duality.Player;
-using System.Collections;
 using UnityEngine;
 
 namespace Duality.Projectile

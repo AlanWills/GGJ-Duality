@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: {fileID: 11400000, guid: 892b4152fb88eea47a660e72188524ba, type: 2}
   playerOverrideVersion: 
-  buildDirectory: Builds/Windows/{version}
+  buildDirectory: Builds/Windows/KYLB-{version}
   gDriveBuildUploadDirectory: 
-  outputName: Build-{version}.exe
+  outputName: KeepYourLitterBeach-{version}.exe
   addressablesEnabled: 0
   addressablesBuildDirectory: 
   addressablesLoadDirectory: 
@@ -29,5 +29,5 @@ MonoBehaviour:
   scriptingDefineSymbols: []
   addressableGroupsInBuild: []
   assetPreparationSteps: []
-  fullScreenMode: 2
+  fullScreenMode: 1
   resizeableWindow: 0
