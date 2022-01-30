@@ -1,4 +1,5 @@
-﻿using Celeste.Tools.Attributes.GUI;
+﻿using Celeste.Events;
+using Celeste.Tools.Attributes.GUI;
 using Duality.Player;
 using UnityEngine;
 
@@ -20,6 +21,9 @@ namespace Duality.Projectile
         public PaddleStatus IgnoredByStatus => ignoredByStatus;
 
         public Sprite UISprite => uiSprite;
+        public AudioClip OnBounceSFX => onBounceSFX;
+        public AudioClip OnHitPaddleSFX => onHitPaddleSFX;
+        public AudioClip OnCrossedLineSFX => onCrossedLineSFX;
 
         [Header("Behaviour")]
         [SerializeField] private float extraFiringSpeed = 0;
@@ -43,6 +47,11 @@ namespace Duality.Projectile
 
         [Header("Visuals")]
         [SerializeField] private Sprite uiSprite;
+
+        [Header("Audio")]
+        [SerializeField] private AudioClip onBounceSFX;
+        [SerializeField] private AudioClip onHitPaddleSFX;
+        [SerializeField] private AudioClip onCrossedLineSFX;
 
         [Header("Events")]
         [SerializeField] private ProjectileCommonEvents projectileCommonEvents;

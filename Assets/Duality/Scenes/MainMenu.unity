@@ -173,14 +173,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1c5c68b645eb746f7b0f7b3a8ad0e6b3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &238241715
 CanvasRenderer:
@@ -294,7 +294,7 @@ RectTransform:
   - {fileID: 1536273366}
   - {fileID: 1938153961}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -450,6 +450,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 504880098}
   currentSkin: {fileID: 11400000, guid: ab2f74466816a634ba256daf2c551006, type: 2}
+--- !u!1 &644490006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 644490007}
+  - component: {fileID: 644490008}
+  m_Layer: 0
+  m_Name: BackgroundMusic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &644490007
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644490006}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &644490008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644490006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a06dcab2d11aa4caceb3b9dd566da7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playMusic: {fileID: 11400000, guid: 2eabb83eedd9f1f40ad53dc01363b3d7, type: 2}
+  music: {fileID: 8300000, guid: 209b88dc083224d08be7534fb4b3eba1, type: 3}
 --- !u!1 &1240651970
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +731,7 @@ GameObject:
   - component: {fileID: 1536273368}
   - component: {fileID: 1536273367}
   - component: {fileID: 1536273370}
+  - component: {fileID: 1536273371}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -757,6 +803,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1536273371}
+        m_TargetAssemblyTypeName: Celeste.Events.ParameterisedEventRaiser`2[[UnityEngine.AudioClip,
+          UnityEngine
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1536273370}
         m_TargetAssemblyTypeName: Duality.LoadSceneSet, Duality
         m_MethodName: Load
@@ -821,6 +880,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadOnAwake: 0
   sceneSet: {fileID: 11400000, guid: 91f3ee3211fa8e44cb708ceb858e2600, type: 2}
+--- !u!114 &1536273371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536273365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824b3c7c4715e7342983d0a67ee53827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 48cb7be28c92f1944aed44df0a6c29c2, type: 2}
 --- !u!1 &1938153960
 GameObject:
   m_ObjectHideFlags: 0

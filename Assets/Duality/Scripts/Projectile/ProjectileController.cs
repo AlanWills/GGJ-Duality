@@ -1,4 +1,5 @@
-﻿using Celeste.Tools;
+﻿using Celeste.Events;
+using Celeste.Tools;
 using Celeste.UI.Layout;
 using Celeste.Utils;
 using Duality.Player;
@@ -14,6 +15,7 @@ namespace Duality.Projectile
         [SerializeField] private ProjectileSettings projectileSettings;
         [SerializeField] private SpriteRenderer projectileSpriteRenderer;
         [SerializeField] private Rigidbody2D projectileRigidbody;
+        [SerializeField] private AudioClipEvent playSFXOneShot;
 
         private int playerMask;
         private int opponentMask;
@@ -88,10 +90,20 @@ namespace Duality.Projectile
 
                 if (shouldDie)
                 {
+                    if (projectileSettings.OnHitPaddleSFX != null)
+                    {
+                        playSFXOneShot.Invoke(projectileSettings.OnHitPaddleSFX);
+                    }
+
                     gameObject.SetActive(false);
                 }
                 else
                 {
+                    if (projectileSettings.OnBounceSFX != null)
+                    {
+                        playSFXOneShot.Invoke(projectileSettings.OnBounceSFX);
+                    }
+
                     projectileRigidbody.velocity *= new Vector2(-1, 1);
 
                     Vector2 velocity = projectileRigidbody.velocity;
@@ -110,6 +122,11 @@ namespace Duality.Projectile
                 else
                 {
                     projectileSettings.CrossedOpponentsLine(playerMask, opponentMask);
+                }
+
+                if (projectileSettings.OnCrossedLineSFX != null)
+                {
+                    playSFXOneShot.Invoke(projectileSettings.OnCrossedLineSFX);
                 }
 
                 gameObject.SetActive(false);

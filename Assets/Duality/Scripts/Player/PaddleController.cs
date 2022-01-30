@@ -58,7 +58,7 @@ namespace Duality.Player
 
         private void Start()
         {
-            CentrePaddle();
+            ResetPaddle();
 
             Rect gameBoundsUISpace = gameBounds.rectTransform.GetWorldRect();
             gameBoundsMinWorldSpace = Camera.main.ScreenToWorldPoint(new Vector3(gameBoundsUISpace.xMin, gameBoundsUISpace.yMin, 0));
@@ -102,7 +102,7 @@ namespace Duality.Player
 
         #endregion
 
-        private void CentrePaddle()
+        private void ResetPaddle()
         {
             var pos = new Vector3(0, Screen.height * 0.5f, 0);
             var currentPosition = transform.position;
@@ -198,7 +198,9 @@ namespace Duality.Player
 
         public void OnGameRoundReset()
         {
-            CentrePaddle();
+            ResetPaddle();
+
+            paddleState.SetStatus(PaddleStatus.None);
         }
 
         #endregion

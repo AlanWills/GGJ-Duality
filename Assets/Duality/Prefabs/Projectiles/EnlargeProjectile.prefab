@@ -131,6 +131,7 @@ MonoBehaviour:
   projectileSettings: {fileID: 11400000, guid: 3d154e1cb606b4b4895fb102064c2f19, type: 2}
   projectileSpriteRenderer: {fileID: 7665328352135952180}
   projectileRigidbody: {fileID: 3030564615727480267}
+  playSFXOneShot: {fileID: 11400000, guid: 48cb7be28c92f1944aed44df0a6c29c2, type: 2}
 --- !u!50 &3030564615727480267
 Rigidbody2D:
   serializedVersion: 4

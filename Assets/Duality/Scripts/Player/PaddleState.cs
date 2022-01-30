@@ -49,5 +49,14 @@ namespace Duality.Player
                 onStatusRemoved.Invoke(new PaddleStatusRemovedArgs() { statusRemoved = status });
             }
         }
+
+        public void SetStatus(PaddleStatus status)
+        {
+            if (this.status != status)
+            {
+                PaddleStatus statusToRemove = this.status & ~status;
+                RemoveStatus(statusToRemove);
+            }
+        }
     }
 }

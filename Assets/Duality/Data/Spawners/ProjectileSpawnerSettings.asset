@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ProjectileSpawnerSettings
   m_EditorClassIdentifier: 
   initialSpawnDelay: 0
-  secondsBetweenSpawns: 6
+  secondsBetweenSpawns: 4
   spawnQueueSize: 4
   spawnVelocity: 5
   projectiles:
@@ -23,11 +23,11 @@ MonoBehaviour:
     projectileSettings: {fileID: 11400000, guid: 3d154e1cb606b4b4895fb102064c2f19, type: 2}
   - shuffleBagSize: 1
     projectileSettings: {fileID: 11400000, guid: 050af653779ba4147afad6eab02c8492, type: 2}
-  - shuffleBagSize: 1
+  - shuffleBagSize: 3
     projectileSettings: {fileID: 11400000, guid: 954894bd79df8db4baeec4fd733c3116, type: 2}
-  - shuffleBagSize: 1
+  - shuffleBagSize: 10
     projectileSettings: {fileID: 11400000, guid: 18ddb4893f842f548a004d4e547e9bb9, type: 2}
-  - shuffleBagSize: 1
+  - shuffleBagSize: 6
     projectileSettings: {fileID: 11400000, guid: 84eb66d91d7496e4d96924dd170a4fea, type: 2}
   - shuffleBagSize: 1
     projectileSettings: {fileID: 11400000, guid: 203c4fc1f135aa744bbb0c81c564a9a3, type: 2}

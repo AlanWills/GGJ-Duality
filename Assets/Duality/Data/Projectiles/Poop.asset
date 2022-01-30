@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae524c6c2ce6344886b64c8dfa732b1, type: 3}
   m_Name: Poop
   m_EditorClassIdentifier: 
+  extraFiringSpeed: 2
+  bounceIncrease: 0.1
   dieOnHitPaddle: 0
+  appliesStatus: 0
+  statusToApply: 1
+  secondsToApplyFor: 3
+  isIgnoredByStatus: 0
+  ignoredByStatus: 1
   yourPointsIfCrossesYourLine: 0
   yourPointsIfCrossesOpponentLine: 10
   yourPointsIfHitsYourPaddle: 0
@@ -22,4 +29,7 @@ MonoBehaviour:
   opponentPointsIfHitsYourPaddle: 0
   opponentPointsIfHitsOpponentPaddle: 0
   uiSprite: {fileID: 21300000, guid: 14139b37780f84379b96f9d0df6ef913, type: 3}
+  onBounceSFX: {fileID: 8300000, guid: 071625d6adab8416dab1f5f48b7c61f2, type: 3}
+  onHitPaddleSFX: {fileID: 0}
+  onCrossedLineSFX: {fileID: 8300000, guid: 4e3d0cacb103b4be5810ac9af9deaf21, type: 3}
   projectileCommonEvents: {fileID: 11400000, guid: 063309eccbe1e3e4c885d20538b95357, type: 2}

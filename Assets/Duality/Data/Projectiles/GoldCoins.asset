@@ -12,14 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae524c6c2ce6344886b64c8dfa732b1, type: 3}
   m_Name: GoldCoins
   m_EditorClassIdentifier: 
+  extraFiringSpeed: 0
+  bounceIncrease: 0.2
   dieOnHitPaddle: 0
-  yourPointsIfCrossesYourLine: 100
+  appliesStatus: 0
+  statusToApply: 1
+  secondsToApplyFor: 3
+  isIgnoredByStatus: 0
+  ignoredByStatus: 1
+  yourPointsIfCrossesYourLine: 50
   yourPointsIfCrossesOpponentLine: 0
   yourPointsIfHitsYourPaddle: 0
   yourPointsIfHitsOpponentPaddle: 0
   opponentPointsIfCrossesYourLine: 0
-  opponentPointsIfCrossesOpponentLine: 100
+  opponentPointsIfCrossesOpponentLine: 50
   opponentPointsIfHitsYourPaddle: 0
   opponentPointsIfHitsOpponentPaddle: 0
   uiSprite: {fileID: 21300000, guid: 7c9a815d5aba141538e07fc3ac57d177, type: 3}
+  onBounceSFX: {fileID: 8300000, guid: 071625d6adab8416dab1f5f48b7c61f2, type: 3}
+  onHitPaddleSFX: {fileID: 0}
+  onCrossedLineSFX: {fileID: 8300000, guid: 5bb5fbd9720a1482da6625b2cc4ff2ba, type: 3}
   projectileCommonEvents: {fileID: 11400000, guid: 063309eccbe1e3e4c885d20538b95357, type: 2}

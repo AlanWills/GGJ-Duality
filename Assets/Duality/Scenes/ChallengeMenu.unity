@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 191115888}
   - component: {fileID: 191115887}
   - component: {fileID: 191115890}
+  - component: {fileID: 191115891}
   m_Layer: 5
   m_Name: ControlsButton
   m_TagString: Untagged
@@ -207,6 +208,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 191115891}
+        m_TargetAssemblyTypeName: Celeste.Events.ParameterisedEventRaiser`2[[UnityEngine.AudioClip,
+          UnityEngine
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 5b74bc14a0c934cc9a63efc4834308c0, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 191115890}
         m_TargetAssemblyTypeName: Duality.LoadSceneSet, Duality
         m_MethodName: Load
@@ -271,6 +285,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadOnAwake: 0
   sceneSet: {fileID: 11400000, guid: 25a233a4aab29b047be8172d4167258f, type: 2}
+--- !u!114 &191115891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191115885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824b3c7c4715e7342983d0a67ee53827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 48cb7be28c92f1944aed44df0a6c29c2, type: 2}
 --- !u!1 &340000149
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,14 +497,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1c5c68b645eb746f7b0f7b3a8ad0e6b3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1104,6 +1131,7 @@ GameObject:
   - component: {fileID: 851716322}
   - component: {fileID: 851716321}
   - component: {fileID: 851716324}
+  - component: {fileID: 851716325}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -1175,6 +1203,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 851716325}
+        m_TargetAssemblyTypeName: Celeste.Events.ParameterisedEventRaiser`2[[UnityEngine.AudioClip,
+          UnityEngine
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 5b74bc14a0c934cc9a63efc4834308c0, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 851716324}
         m_TargetAssemblyTypeName: Duality.LoadSceneSet, Duality
         m_MethodName: Load
@@ -1239,6 +1280,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadOnAwake: 0
   sceneSet: {fileID: 11400000, guid: c623f4b1652f15f49ae31359225e4173, type: 2}
+--- !u!114 &851716325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851716319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824b3c7c4715e7342983d0a67ee53827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 48cb7be28c92f1944aed44df0a6c29c2, type: 2}
 --- !u!1 &1017733981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1422,6 +1476,7 @@ GameObject:
   - component: {fileID: 1023443846}
   - component: {fileID: 1023443845}
   - component: {fileID: 1023443848}
+  - component: {fileID: 1023443849}
   m_Layer: 5
   m_Name: TutorialButton
   m_TagString: Untagged
@@ -1493,6 +1548,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1023443849}
+        m_TargetAssemblyTypeName: Celeste.Events.ParameterisedEventRaiser`2[[UnityEngine.AudioClip,
+          UnityEngine
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 5b74bc14a0c934cc9a63efc4834308c0, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1023443848}
         m_TargetAssemblyTypeName: Duality.LoadSceneSet, Duality
         m_MethodName: Load
@@ -1557,6 +1625,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadOnAwake: 0
   sceneSet: {fileID: 11400000, guid: 3de0c845cb7144742a44cad44551d5f7, type: 2}
+--- !u!114 &1023443849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023443843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824b3c7c4715e7342983d0a67ee53827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 48cb7be28c92f1944aed44df0a6c29c2, type: 2}
 --- !u!1 &1043708717
 GameObject:
   m_ObjectHideFlags: 0

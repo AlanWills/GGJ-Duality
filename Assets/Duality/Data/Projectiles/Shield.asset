@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shield
   m_EditorClassIdentifier: 
   extraFiringSpeed: 0
-  bounceIncrease: 0.2
+  bounceIncrease: 0
   dieOnHitPaddle: 1
   appliesStatus: 1
   statusToApply: 2
@@ -29,4 +29,7 @@ MonoBehaviour:
   opponentPointsIfHitsYourPaddle: 0
   opponentPointsIfHitsOpponentPaddle: 0
   uiSprite: {fileID: 21300000, guid: ca4736eee3fc64ec0b6e7440acc1f996, type: 3}
+  onBounceSFX: {fileID: 8300000, guid: 071625d6adab8416dab1f5f48b7c61f2, type: 3}
+  onHitPaddleSFX: {fileID: 8300000, guid: 19e8fb297f06941b7937bb3879f9db30, type: 3}
+  onCrossedLineSFX: {fileID: 0}
   projectileCommonEvents: {fileID: 11400000, guid: 063309eccbe1e3e4c885d20538b95357, type: 2}

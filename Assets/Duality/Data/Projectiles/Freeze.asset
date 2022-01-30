@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae524c6c2ce6344886b64c8dfa732b1, type: 3}
   m_Name: Freeze
   m_EditorClassIdentifier: 
+  extraFiringSpeed: 2
+  bounceIncrease: 0.2
   dieOnHitPaddle: 1
   appliesStatus: 1
   statusToApply: 4
@@ -27,4 +29,7 @@ MonoBehaviour:
   opponentPointsIfHitsYourPaddle: 0
   opponentPointsIfHitsOpponentPaddle: 0
   uiSprite: {fileID: 21300000, guid: e04ab48435f3d4828afb3479f0a9ade4, type: 3}
+  onBounceSFX: {fileID: 8300000, guid: 071625d6adab8416dab1f5f48b7c61f2, type: 3}
+  onHitPaddleSFX: {fileID: 8300000, guid: 551348c7f845e4064a6ffc47d7b993cb, type: 3}
+  onCrossedLineSFX: {fileID: 0}
   projectileCommonEvents: {fileID: 11400000, guid: 063309eccbe1e3e4c885d20538b95357, type: 2}

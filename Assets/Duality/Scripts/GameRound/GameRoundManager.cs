@@ -2,6 +2,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Duality.GameRound
@@ -23,6 +24,9 @@ namespace Duality.GameRound
 
         [SerializeField] private Color normalTimeColour = Color.green;
         [SerializeField] private Color timeAlmostUpColour = Color.red;
+
+        [SerializeField] private UnityEvent countdownTick;
+        [SerializeField] private UnityEvent countdownDone;
 
         private Coroutine gameRoundCoroutine;
 
@@ -67,6 +71,7 @@ namespace Duality.GameRound
         {
             float currentCountdown = gameRoundSettings.CountdownSeconds;
             float currentSecond = 1;
+            countdownTick.Invoke();
 
             gameRoundTimeText.text = ToTimeString(Mathf.CeilToInt(gameRoundSettings.GameRoundSeconds));
             currentGameRoundTimeRemaining.Value = gameRoundSettings.GameRoundSeconds;
@@ -77,6 +82,12 @@ namespace Duality.GameRound
 
             while (currentCountdown > 0)
             {
+                if (currentSecond <= 0)
+                {
+                    currentSecond = 1;
+                    countdownTick.Invoke();
+                }
+
                 // Cubic lerp
                 countdownText.text = Mathf.CeilToInt(currentCountdown).ToString();
                 countdownText.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, currentSecond * currentSecond * currentSecond);
@@ -85,15 +96,11 @@ namespace Duality.GameRound
 
                 currentCountdown -= Time.deltaTime;
                 currentSecond -= Time.deltaTime;
-
-                if (currentSecond <= 0)
-                {
-                    currentSecond = 1;
-                }
             }
 
             currentSecond = 1;
             countdownText.text = "GO!";
+            countdownDone.Invoke();
 
             while (currentSecond > 0)
             {

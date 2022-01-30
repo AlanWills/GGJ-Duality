@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae524c6c2ce6344886b64c8dfa732b1, type: 3}
   m_Name: Bomb
   m_EditorClassIdentifier: 
+  extraFiringSpeed: 0
+  bounceIncrease: 1
   dieOnHitPaddle: 1
   appliesStatus: 0
   statusToApply: 1
@@ -27,4 +29,7 @@ MonoBehaviour:
   opponentPointsIfHitsYourPaddle: 10
   opponentPointsIfHitsOpponentPaddle: 0
   uiSprite: {fileID: 21300000, guid: 7308e3518621d414c87786e75a2228d6, type: 3}
+  onBounceSFX: {fileID: 8300000, guid: 071625d6adab8416dab1f5f48b7c61f2, type: 3}
+  onHitPaddleSFX: {fileID: 8300000, guid: 0172c149808c94edfa5ed36940e1989e, type: 3}
+  onCrossedLineSFX: {fileID: 8300000, guid: 0172c149808c94edfa5ed36940e1989e, type: 3}
   projectileCommonEvents: {fileID: 11400000, guid: 063309eccbe1e3e4c885d20538b95357, type: 2}
