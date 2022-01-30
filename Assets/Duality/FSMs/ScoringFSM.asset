@@ -26,7 +26,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: Player2AddPoints
-        node: {fileID: -6166339050687554130}
+        node: {fileID: -1695456981411219893}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: ' '
-        node: {fileID: -6166339050687554130}
+        node: {fileID: -1695456981411219893}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -50,7 +50,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: argument
-        node: {fileID: -6166339050687554130}
+        node: {fileID: -1695456981411219893}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
   isConstant: 1
   constantValue: 0
   referenceValue: {fileID: 0}
---- !u!114 &-6166339050687554130
+--- !u!114 &-6259785054530197269
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,99 +84,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d3d684a2fdcd6e4e8336fa62bb135eb, type: 3}
-  m_Name: Multi Event Listener
+  m_Script: {fileID: 11500000, guid: d0efdd2cf93fbd9489957a3bb755b622, type: 3}
+  m_Name: GameRoundReset
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -88, y: -56}
-  ports:
-    keys:
-    - ' '
-    - argument
-    - Player1AddPoints
-    - Player2AddPoints
-    - GameRoundReset
-    values:
-    - _fieldName: ' '
-      _node: {fileID: -6166339050687554130}
-      _typeQualifiedName: System.Void, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: 
-        node: {fileID: -8624835352496775991}
-        reroutePoints: []
-      - fieldName: 
-        node: {fileID: 2962484492967250871}
-        reroutePoints: []
-      - fieldName: 
-        node: {fileID: 2962484492967250871}
-        reroutePoints: []
-      - fieldName: 
-        node: {fileID: -8624835352496775991}
-        reroutePoints: []
-      - fieldName: 
-        node: {fileID: 2369971528007026087}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 1
-    - _fieldName: argument
-      _node: {fileID: -6166339050687554130}
-      _typeQualifiedName: System.Object, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: newValue
-        node: {fileID: 2962484492967250871}
-        reroutePoints: []
-      - fieldName: newValue
-        node: {fileID: -8624835352496775991}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: Player1AddPoints
-      _node: {fileID: -6166339050687554130}
-      _typeQualifiedName: System.Void, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: ' '
-        node: {fileID: 2962484492967250871}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 1
-    - _fieldName: Player2AddPoints
-      _node: {fileID: -6166339050687554130}
-      _typeQualifiedName: System.Void, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: ' '
-        node: {fileID: -8624835352496775991}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 1
-    - _fieldName: GameRoundReset
-      _node: {fileID: -6166339050687554130}
-      _typeQualifiedName: System.Void, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: ' '
-        node: {fileID: 6735735214740778161}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 1
-  guid: 367a9af1-2c46-4564-b79e-564c0b987fa8
-  events:
-  - {fileID: 5592949958151888355}
-  - {fileID: -1700449077914668522}
-  - {fileID: 4325397493398086930}
+  listenFor: {fileID: 11400000, guid: fa86e6fb5d9e055458487c0ab60131c4, type: 2}
 --- !u!114 &-5111391720665198316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -207,7 +118,7 @@ MonoBehaviour:
   isConstant: 1
   constantValue: 0
   referenceValue: {fileID: 0}
---- !u!114 &-1700449077914668522
+--- !u!114 &-1695456981411219893
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,10 +127,102 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2cb69642033949468edfaf2e081af24, type: 3}
-  m_Name: Player1AddPoints
+  m_Script: {fileID: 11500000, guid: 6a06506a65d8e7649914ff48108329a4, type: 3}
+  m_Name: Multi Event Queue
   m_EditorClassIdentifier: 
-  listenFor: {fileID: 11400000, guid: 8ece2ac3b3a3efa418ef57a9bccc2ca5, type: 2}
+  graph: {fileID: 11400000}
+  position: {x: -104, y: -152}
+  ports:
+    keys:
+    - ' '
+    - argument
+    - Player1AddPoints
+    - Player2AddPoints
+    - GameRoundReset
+    values:
+    - _fieldName: ' '
+      _node: {fileID: -1695456981411219893}
+      _typeQualifiedName: System.Void, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: 
+        node: {fileID: 2369971528007026087}
+        reroutePoints: []
+      - fieldName: 
+        node: {fileID: 2962484492967250871}
+        reroutePoints: []
+      - fieldName: 
+        node: {fileID: -8624835352496775991}
+        reroutePoints: []
+      - fieldName: 
+        node: {fileID: 2962484492967250871}
+        reroutePoints: []
+      - fieldName: 
+        node: {fileID: -8624835352496775991}
+        reroutePoints: []
+      - fieldName: 
+        node: {fileID: 2369971528007026087}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: argument
+      _node: {fileID: -1695456981411219893}
+      _typeQualifiedName: System.Object, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: newValue
+        node: {fileID: 2962484492967250871}
+        reroutePoints: []
+      - fieldName: newValue
+        node: {fileID: -8624835352496775991}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Player1AddPoints
+      _node: {fileID: -1695456981411219893}
+      _typeQualifiedName: System.Void, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: ' '
+        node: {fileID: 2962484492967250871}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: Player2AddPoints
+      _node: {fileID: -1695456981411219893}
+      _typeQualifiedName: System.Void, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: ' '
+        node: {fileID: -8624835352496775991}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: GameRoundReset
+      _node: {fileID: -1695456981411219893}
+      _typeQualifiedName: System.Void, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: newValue
+        node: {fileID: 6735735214740778161}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  guid: 87fde8f6-dee6-41f5-aca2-e4a4eed6dae5
+  events:
+  - {fileID: 5112596180764035032}
+  - {fileID: -261595330946622982}
+  - {fileID: -6259785054530197269}
 --- !u!114 &-1008154027668114111
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,6 +238,19 @@ MonoBehaviour:
   isConstant: 1
   constantValue: 0
   referenceValue: {fileID: 0}
+--- !u!114 &-261595330946622982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2cb69642033949468edfaf2e081af24, type: 3}
+  m_Name: Player1AddPoints
+  m_EditorClassIdentifier: 
+  listenFor: {fileID: 11400000, guid: 8ece2ac3b3a3efa418ef57a9bccc2ca5, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,12 +264,12 @@ MonoBehaviour:
   m_Name: ScoringFSM
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: -6166339050687554130}
   - {fileID: 2962484492967250871}
   - {fileID: -8624835352496775991}
   - {fileID: 6735735214740778161}
   - {fileID: 2369971528007026087}
-  startNode: {fileID: -6166339050687554130}
+  - {fileID: -1695456981411219893}
+  startNode: {fileID: -1695456981411219893}
   finishNode: {fileID: 0}
   parameters:
   - {fileID: -4182056032541960800}
@@ -288,6 +304,15 @@ MonoBehaviour:
       - fieldName: 
         node: {fileID: 6735735214740778161}
         reroutePoints: []
+      - fieldName: 
+        node: {fileID: 6735735214740778161}
+        reroutePoints: []
+      - fieldName: 
+        node: {fileID: 6735735214740778161}
+        reroutePoints: []
+      - fieldName: 
+        node: {fileID: 6735735214740778161}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -298,7 +323,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: ' '
-        node: {fileID: -6166339050687554130}
+        node: {fileID: -1695456981411219893}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -343,7 +368,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: Player1AddPoints
-        node: {fileID: -6166339050687554130}
+        node: {fileID: -1695456981411219893}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -355,7 +380,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: ' '
-        node: {fileID: -6166339050687554130}
+        node: {fileID: -1695456981411219893}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -367,7 +392,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: argument
-        node: {fileID: -6166339050687554130}
+        node: {fileID: -1695456981411219893}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -377,20 +402,7 @@ MonoBehaviour:
   value: {fileID: 11400000, guid: ad41030b09847d74294b7052db52983d, type: 2}
   newValue: {fileID: -4182056032541960800}
   setMode: 1
---- !u!114 &4325397493398086930
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0efdd2cf93fbd9489957a3bb755b622, type: 3}
-  m_Name: GameRoundReset
-  m_EditorClassIdentifier: 
-  listenFor: {fileID: 11400000, guid: fa86e6fb5d9e055458487c0ab60131c4, type: 2}
---- !u!114 &5592949958151888355
+--- !u!114 &5112596180764035032
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -427,10 +439,7 @@ MonoBehaviour:
       _node: {fileID: 6735735214740778161}
       _typeQualifiedName: System.Void, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: GameRoundReset
-        node: {fileID: -6166339050687554130}
-        reroutePoints: []
+      connections: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -451,7 +460,10 @@ MonoBehaviour:
       _node: {fileID: 6735735214740778161}
       _typeQualifiedName: Celeste.Parameters.IntReference, Celeste.Parameters, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: GameRoundReset
+        node: {fileID: -1695456981411219893}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0

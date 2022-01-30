@@ -34,7 +34,7 @@ namespace Duality.Projectile
             transform.rotation = rotation;
             transform.Translate(new Vector3(0, projectileSpriteRenderer.sprite.bounds.extents.magnitude * projectileSpriteRenderer.transform.lossyScale.y));
             gameObject.SetActive(true);
-            projectileRigidbody.velocity = transform.TransformVector(new Vector2(0, forwardVelocity));
+            projectileRigidbody.velocity = transform.TransformVector(new Vector2(0, forwardVelocity + projectileSettings.ExtraFiringSpeed));
         }
 
         #region Unity Methods
@@ -75,12 +75,13 @@ namespace Duality.Projectile
                 }
 
                 bool appliesStatus = projectileSettings.AppliesStatus;
-                bool paddleHasStatus = appliesStatus && paddleState.HasStatus(projectileSettings.StatusToApply);
+                bool ignoredByStatus = projectileSettings.IsIgnoredByStatus;
+                bool paddleHasIgnoreStatus = ignoredByStatus && paddleState.HasStatus(projectileSettings.IgnoredByStatus);
 
-                // We should only die if we've marked we should die on paddle hit and we don't apply a status, or the paddle does not have the status
-                bool shouldDie = projectileSettings.DieOnHitPaddle && (!appliesStatus || !paddleHasStatus);
+                // We should only die if we've marked we should die on paddle hit and we don't have the ignore by status
+                bool shouldDie = projectileSettings.DieOnHitPaddle && (!ignoredByStatus || !paddleHasIgnoreStatus);
 
-                if (appliesStatus && !paddleHasStatus)
+                if (appliesStatus && !paddleHasIgnoreStatus)
                 {
                     paddleState.AddStatus(projectileSettings.StatusToApply, projectileSettings.SecondsToApplyFor);
                 }
@@ -92,6 +93,9 @@ namespace Duality.Projectile
                 else
                 {
                     projectileRigidbody.velocity *= new Vector2(-1, 1);
+
+                    Vector2 velocity = projectileRigidbody.velocity;
+                    projectileRigidbody.velocity = velocity.normalized * (velocity.magnitude + projectileSettings.BounceIncrease); 
                 }
             }
             else if (collision.CompareTag("Lines"))

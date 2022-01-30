@@ -149,6 +149,7 @@ namespace Duality.Player
             if ((status & PaddleStatus.Shrink) == PaddleStatus.Shrink)
             {
                 transform.localScale -= new Vector3(paddleSettings.ShrinkScaleChange, 0, 0);
+                Debug.Assert(transform.localScale.x >= (1 - paddleSettings.ShrinkScaleChange), $"Local Scale less than 0.5f.");
             }
 
             StartCoroutine(RemoveStatusAfter(status, statusAddedArgs.secondsAppliedFor));
@@ -169,6 +170,7 @@ namespace Duality.Player
             if ((status & PaddleStatus.Enlarge) == PaddleStatus.Enlarge)
             {
                 transform.localScale -= new Vector3(paddleSettings.EnlargeScaleChange, 0, 0);
+                Debug.Assert(transform.localScale.x >= (1 - paddleSettings.ShrinkScaleChange), $"Local Scale less than 0.5f.");
             }
 
             if ((status & PaddleStatus.Shrink) == PaddleStatus.Shrink)

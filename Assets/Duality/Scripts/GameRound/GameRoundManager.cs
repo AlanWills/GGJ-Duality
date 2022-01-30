@@ -2,6 +2,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Duality.GameRound
 {
@@ -10,13 +11,18 @@ namespace Duality.GameRound
         #region Properties and Fields
 
         [SerializeField] private GameRoundSettings gameRoundSettings;
+        [SerializeField] private IntValue currentGameRoundTimeRemaining;
         [SerializeField] private Celeste.Events.Event beginRound;
         [SerializeField] private Celeste.Events.Event endRound;
 
         [SerializeField] private GameObject countdownUI;
+        [SerializeField] private Image countdownBackground;
         [SerializeField] private TextMeshProUGUI countdownText;
         [SerializeField] private TextMeshProUGUI gameRoundTimeText;
         [SerializeField] private GameObject gameRoundOverUI;
+
+        [SerializeField] private Color normalTimeColour = Color.green;
+        [SerializeField] private Color timeAlmostUpColour = Color.red;
 
         private Coroutine gameRoundCoroutine;
 
@@ -40,6 +46,11 @@ namespace Duality.GameRound
 
         #endregion
 
+        public void ModifyTime(int seconds)
+        {
+            currentGameRoundTimeRemaining += seconds;
+        }
+
         private void StartGameRound()
         {
             if (gameRoundCoroutine != null)
@@ -54,10 +65,12 @@ namespace Duality.GameRound
 
         private IEnumerator GameRound()
         {
-            gameRoundTimeText.text = ToTimeString(Mathf.CeilToInt(gameRoundSettings.GameRoundSeconds));
-
             float currentCountdown = gameRoundSettings.CountdownSeconds;
             float currentSecond = 1;
+
+            gameRoundTimeText.text = ToTimeString(Mathf.CeilToInt(gameRoundSettings.GameRoundSeconds));
+            currentGameRoundTimeRemaining.Value = gameRoundSettings.GameRoundSeconds;
+            countdownBackground.color = normalTimeColour;
 
             countdownUI.SetActive(true);
             gameRoundOverUI.SetActive(false);
@@ -94,19 +107,25 @@ namespace Duality.GameRound
             countdownUI.SetActive(false);
             beginRound.Invoke();
 
-            float gameRoundTimeRemaining = gameRoundSettings.GameRoundSeconds;
-            while (gameRoundTimeRemaining > 0)
+            while (currentGameRoundTimeRemaining.Value > 0)
             {
-                yield return null;
+                gameRoundTimeText.text = ToTimeString(currentGameRoundTimeRemaining.Value);
 
-                gameRoundTimeText.text = ToTimeString(Mathf.CeilToInt(gameRoundTimeRemaining));
-                gameRoundTimeRemaining -= Time.deltaTime;
+                yield return new WaitForSeconds(1);
+
+                currentGameRoundTimeRemaining -= 1;
+
+                if (currentGameRoundTimeRemaining == gameRoundSettings.TimeAlmostUp)
+                {
+                    countdownBackground.color = timeAlmostUpColour;
+                }
             }
 
             gameRoundTimeText.text = "0:00";
             endRound.Invoke();
 
             currentSecond = 1;
+            countdownUI.SetActive(true);
             countdownText.text = "Time's Up!";
 
             while (currentSecond > 0)
@@ -120,6 +139,7 @@ namespace Duality.GameRound
 
             yield return new WaitForSeconds(1);
 
+            countdownUI.SetActive(false);
             gameRoundOverUI.SetActive(true);
         }
 

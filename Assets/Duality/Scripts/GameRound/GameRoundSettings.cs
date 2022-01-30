@@ -8,8 +8,10 @@ namespace Duality.GameRound
     {
         public int CountdownSeconds => countdownSeconds;
         public int GameRoundSeconds => gameRoundSeconds;
+        public int TimeAlmostUp => timeAlmostUp;
 
         [SerializeField] private int countdownSeconds = 3;
         [SerializeField] private int gameRoundSeconds = 150;
+        [SerializeField] private int timeAlmostUp = 10;
     }
 }

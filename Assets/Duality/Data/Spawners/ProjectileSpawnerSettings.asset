@@ -15,20 +15,18 @@ MonoBehaviour:
   initialSpawnDelay: 0
   secondsBetweenSpawns: 6
   spawnQueueSize: 4
-  spawnVelocity: 3
+  spawnVelocity: 5
   projectiles:
   - shuffleBagSize: 1
     projectileSettings: {fileID: 11400000, guid: 276b4eecb1cda384ea1edfe675119eb4, type: 2}
-  - shuffleBagSize: 1
-    projectileSettings: {fileID: 11400000, guid: 086481eddd2088146b78941bcdd1f5c7, type: 2}
   - shuffleBagSize: 1
     projectileSettings: {fileID: 11400000, guid: 3d154e1cb606b4b4895fb102064c2f19, type: 2}
   - shuffleBagSize: 1
     projectileSettings: {fileID: 11400000, guid: 050af653779ba4147afad6eab02c8492, type: 2}
   - shuffleBagSize: 1
     projectileSettings: {fileID: 11400000, guid: 954894bd79df8db4baeec4fd733c3116, type: 2}
-  - shuffleBagSize: 0
-    projectileSettings: {fileID: 11400000, guid: b72827679cc935849a7799942f9f3900, type: 2}
+  - shuffleBagSize: 1
+    projectileSettings: {fileID: 11400000, guid: 18ddb4893f842f548a004d4e547e9bb9, type: 2}
   - shuffleBagSize: 1
     projectileSettings: {fileID: 11400000, guid: 84eb66d91d7496e4d96924dd170a4fea, type: 2}
   - shuffleBagSize: 1

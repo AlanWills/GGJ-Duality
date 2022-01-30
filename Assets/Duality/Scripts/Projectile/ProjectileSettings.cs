@@ -9,18 +9,27 @@ namespace Duality.Projectile
     {
         #region Properties and Fields
 
+        public float ExtraFiringSpeed => extraFiringSpeed;
+        public float BounceIncrease => bounceIncrease;
+
         public bool DieOnHitPaddle => dieOnHitPaddle;
         public bool AppliesStatus => appliesStatus;
         public PaddleStatus StatusToApply => statusToApply;
         public float SecondsToApplyFor => secondsToApplyFor;
+        public bool IsIgnoredByStatus => isIgnoredByStatus;
+        public PaddleStatus IgnoredByStatus => ignoredByStatus;
 
         public Sprite UISprite => uiSprite;
 
         [Header("Behaviour")]
+        [SerializeField] private float extraFiringSpeed = 0;
+        [SerializeField] private float bounceIncrease = 0.2f;
         [SerializeField] private bool dieOnHitPaddle = false;
         [SerializeField] private bool appliesStatus = false;
         [SerializeField, ShowIf(nameof(appliesStatus))] private PaddleStatus statusToApply = PaddleStatus.None;
         [SerializeField, ShowIf(nameof(appliesStatus))] private float secondsToApplyFor = 3;
+        [SerializeField] private bool isIgnoredByStatus = false;
+        [SerializeField, ShowIf(nameof(isIgnoredByStatus))] private PaddleStatus ignoredByStatus = PaddleStatus.None;
 
         [Header("Points")]
         [SerializeField] private int yourPointsIfCrossesYourLine;

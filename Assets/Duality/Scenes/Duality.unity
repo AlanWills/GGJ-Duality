@@ -152,7 +152,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1991922271}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &127279689
 MonoBehaviour:
@@ -857,6 +857,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 252989336}
   currentSkin: {fileID: 11400000, guid: ab2f74466816a634ba256daf2c551006, type: 2}
+--- !u!1 &288786513
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 288786514}
+  - component: {fileID: 288786515}
+  m_Layer: 0
+  m_Name: PlasticAllocator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &288786514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288786513}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1991922271}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &288786515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288786513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed62cd2cf1b1004da5f1b728be3631a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6282160407964072592, guid: 1023085175d0fc549abeddb45c269a4c, type: 3}
+  defaultChunkSize: 5
+  allocateOnStart: 10
 --- !u!1 &293452729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,7 +1172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 6282160407964072592, guid: 5f56f33736c1fd14d94653d3745bd8e7, type: 3}
   defaultChunkSize: 5
-  allocateOnStart: 10
+  allocateOnStart: 0
 --- !u!1 &436890037
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,7 +1438,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1991922271}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &671025703
 MonoBehaviour:
@@ -1494,12 +1540,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 865.55
+  m_fontSize: 790.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 1000
+  m_fontSizeMax: 800
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -1530,7 +1576,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 30, y: 30, z: 30, w: 30}
+  m_margin: {x: 100, y: 110, z: 100, w: 30}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1653,12 +1699,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameRoundSettings: {fileID: 11400000, guid: 9e937a168fef2a440b57c5350f0205d2, type: 2}
+  currentGameRoundTimeRemaining: {fileID: 11400000, guid: e4b2dc11c7b7502479a5fbb4dab5bcd3, type: 2}
   beginRound: {fileID: 11400000, guid: 9758d6c5276ec054d81dd0ce9ae8f31f, type: 2}
   endRound: {fileID: 11400000, guid: 708c70a78fa9fcf4eb749c3caa76dfb6, type: 2}
   countdownUI: {fileID: 746432359}
+  countdownBackground: {fileID: 436890039}
   countdownText: {fileID: 746432361}
   gameRoundTimeText: {fileID: 293452731}
   gameRoundOverUI: {fileID: 234624621}
+  normalTimeColour: {r: 0, g: 0.6313726, b: 0.050980393, a: 0.42352942}
+  timeAlmostUpColour: {r: 1, g: 0, b: 0, a: 0.69411767}
 --- !u!114 &803779959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1811,7 +1861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 6282160407964072592, guid: b63df80812d1da64c93f797ea63ade36, type: 3}
   defaultChunkSize: 5
-  allocateOnStart: 10
+  allocateOnStart: 0
 --- !u!1 &944082138
 GameObject:
   m_ObjectHideFlags: 0
@@ -2375,7 +2425,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1991922271}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1220411931
 MonoBehaviour:
@@ -3918,6 +3968,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMask: {fileID: 11400000, guid: eac13137e79d9fa48aa53947410eefc7, type: 2}
+--- !u!114 &1903973353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903973351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c2c167d8138f94b8f96ff1b82578d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: fa86e6fb5d9e055458487c0ab60131c4, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1155031724}
+        m_TargetAssemblyTypeName: Duality.Player.PaddleController, Duality
+        m_MethodName: OnGameRoundReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1963824727
 GameObject:
   m_ObjectHideFlags: 0
@@ -4018,6 +4096,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMask: {fileID: 11400000, guid: 8d5970e8dda92e7489e5a63d39449383, type: 2}
+--- !u!114 &1971824225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971824223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c2c167d8138f94b8f96ff1b82578d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: fa86e6fb5d9e055458487c0ab60131c4, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1466154023}
+        m_TargetAssemblyTypeName: Duality.Player.PaddleController, Duality
+        m_MethodName: OnGameRoundReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1991922270
 GameObject:
   m_ObjectHideFlags: 0
@@ -4053,6 +4159,7 @@ Transform:
   - {fileID: 987947978}
   - {fileID: 568371397}
   - {fileID: 903338508}
+  - {fileID: 288786514}
   - {fileID: 1220411930}
   - {fileID: 671025702}
   - {fileID: 127279688}
@@ -4084,6 +4191,8 @@ MonoBehaviour:
     allocator: {fileID: 568371398}
   - projectileSettings: {fileID: 11400000, guid: b72827679cc935849a7799942f9f3900, type: 2}
     allocator: {fileID: 903338509}
+  - projectileSettings: {fileID: 11400000, guid: 18ddb4893f842f548a004d4e547e9bb9, type: 2}
+    allocator: {fileID: 288786515}
   - projectileSettings: {fileID: 11400000, guid: 84eb66d91d7496e4d96924dd170a4fea, type: 2}
     allocator: {fileID: 1220411931}
   - projectileSettings: {fileID: 11400000, guid: 203c4fc1f135aa744bbb0c81c564a9a3, type: 2}

@@ -16,6 +16,8 @@ MonoBehaviour:
   appliesStatus: 1
   statusToApply: 9
   secondsToApplyFor: 5
+  isIgnoredByStatus: 1
+  ignoredByStatus: 8
   yourPointsIfCrossesYourLine: 0
   yourPointsIfCrossesOpponentLine: 0
   yourPointsIfHitsYourPaddle: 0
