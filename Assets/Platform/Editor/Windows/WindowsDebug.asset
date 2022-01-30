@@ -29,5 +29,5 @@ MonoBehaviour:
   scriptingDefineSymbols: []
   addressableGroupsInBuild: []
   assetPreparationSteps: []
-  fullScreenMode: 1
+  fullScreenMode: 2
   resizeableWindow: 0
