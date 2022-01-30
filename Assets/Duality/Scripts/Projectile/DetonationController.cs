@@ -23,7 +23,11 @@ namespace Duality.Projectile
 
             if (collision.CompareTag("Paddle"))
             {
-                paddleMask = collision.GetComponent<PlayerMask>().Mask;
+                if (!projectileSettings.IsIgnoredByStatus || !collision.GetComponent<PaddleController>().PaddleState.HasStatus(projectileSettings.IgnoredByStatus))
+                {
+                    paddleMask = collision.GetComponent<PlayerMask>().Mask;
+                }
+
                 shouldDie = true;
             }
             else if (collision.CompareTag("Detonation"))

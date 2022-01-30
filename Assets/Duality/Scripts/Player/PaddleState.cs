@@ -8,7 +8,7 @@ namespace Duality.Player
     [Serializable, Flags]
     public enum PaddleStatus
     { 
-        None = 1 << 0,
+        None = 0,
         Shield = 1 << 1,
         Freeze = 1 << 2,
         Enlarge = 1 << 3,
@@ -29,7 +29,7 @@ namespace Duality.Player
 
         public bool HasStatus(PaddleStatus status)
         {
-            return (this.status & status) == status;
+            return (this.status & status) != PaddleStatus.None;
         }
 
         public void AddStatus(PaddleStatus status, float applyForSeconds)
