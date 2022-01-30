@@ -87,11 +87,6 @@ namespace Duality.Projectile
 
                 if (shouldDie)
                 {
-                    if (projectileSettings.OnHitPaddleFX != null)
-                    {
-                        projectileSettings.OnHitPaddleFX.Invoke(transform.position);
-                    }
-
                     if (projectileSettings.OnHitPaddleSFX != null)
                     {
                         playSFXOneShot.Invoke(projectileSettings.OnHitPaddleSFX);

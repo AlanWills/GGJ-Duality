@@ -17,7 +17,7 @@ MonoBehaviour:
   spawnQueueSize: 4
   spawnVelocity: 5
   projectiles:
-  - shuffleBagSize: 1
+  - shuffleBagSize: 100
     projectileSettings: {fileID: 11400000, guid: 276b4eecb1cda384ea1edfe675119eb4, type: 2}
   - shuffleBagSize: 1
     projectileSettings: {fileID: 11400000, guid: 3d154e1cb606b4b4895fb102064c2f19, type: 2}

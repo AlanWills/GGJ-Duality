@@ -11,6 +11,8 @@ namespace Duality.GameRound
     {
         #region Properties and Fields
 
+        [SerializeField] private IntValue player1Score;
+        [SerializeField] private IntValue player2Score;
         [SerializeField] private GameRoundSettings gameRoundSettings;
         [SerializeField] private IntValue currentGameRoundTimeRemaining;
         [SerializeField] private Celeste.Events.Event beginRound;
@@ -65,11 +67,13 @@ namespace Duality.GameRound
             }
 
             gameRoundCoroutine = StartCoroutine(GameRound());
-
         }
 
         private IEnumerator GameRound()
         {
+            player1Score.Value = 0;
+            player2Score.Value = 0;
+
             float currentCountdown = gameRoundSettings.CountdownSeconds;
             float currentSecond = 1;
             countdownTick.Invoke();

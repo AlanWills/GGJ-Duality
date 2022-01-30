@@ -21,8 +21,8 @@ namespace Duality.Projectile
         public PaddleStatus IgnoredByStatus => ignoredByStatus;
 
         public Sprite UISprite => uiSprite;
-        public Vector3Event OnHitPaddleFX => onHitPaddleFX;
         public AudioClip OnBounceSFX => onBounceSFX;
+        public AudioClip OnDetonateSFX => onDetonateSFX;
         public AudioClip OnHitPaddleSFX => onHitPaddleSFX;
         public AudioClip OnCrossedLineSFX => onCrossedLineSFX;
 
@@ -45,13 +45,15 @@ namespace Duality.Projectile
         [SerializeField] private int opponentPointsIfCrossesOpponentLine;
         [SerializeField] private int opponentPointsIfHitsYourPaddle;
         [SerializeField] private int opponentPointsIfHitsOpponentPaddle;
+        [SerializeField] private int opponentPointsIfDetonatesNearOpponentPaddle;
+        [SerializeField] private int pointsIfDetonatesNearPaddle;
 
         [Header("Visuals")]
         [SerializeField] private Sprite uiSprite;
-        [SerializeField] private Vector3Event onHitPaddleFX;
 
         [Header("Audio")]
         [SerializeField] private AudioClip onBounceSFX;
+        [SerializeField] private AudioClip onDetonateSFX;
         [SerializeField] private AudioClip onHitPaddleSFX;
         [SerializeField] private AudioClip onCrossedLineSFX;
 
@@ -109,6 +111,14 @@ namespace Duality.Projectile
             if (opponentPointsIfCrossesOpponentLine != 0)
             {
                 projectileCommonEvents.AddPoints(opponentMask, opponentPointsIfCrossesOpponentLine);
+            }
+        }
+
+        public void DetonatedNearPaddle(int paddleMask)
+        {
+            if (pointsIfDetonatesNearPaddle != 0)
+            {
+                projectileCommonEvents.AddPoints(paddleMask, pointsIfDetonatesNearPaddle);
             }
         }
     }
